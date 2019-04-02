@@ -35,6 +35,47 @@ Array [
       </h1>
     </div>
   </header>,
+  <nav
+    className="pageNavigation"
+  >
+    <ul>
+      <li>
+        <a
+          href="#"
+        >
+          euphorika
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          leistungen
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          best cases
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          jobs
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+        >
+          kontakt
+        </a>
+      </li>
+    </ul>
+  </nav>,
   <div
     className="innerContainer"
   >
