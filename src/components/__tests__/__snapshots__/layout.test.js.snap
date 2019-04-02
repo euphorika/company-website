@@ -38,22 +38,33 @@ Array [
   <div
     className="innerContainer"
   >
-    <main>
+    <main
+      className="main"
+    >
       <div>
         Children
       </div>
     </main>
-    <footer>
-      © 
-      2019
-      , Built with
-       
-      <a
-        href="https://www.gatsbyjs.org"
-      >
-        Gatsby
-      </a>
-    </footer>
   </div>,
+  <footer
+    class="pageFooter"
+  >
+    <ul>
+      <li>
+        <a
+          href="/impressum/"
+        >
+          Impressum
+        </a>
+      </li>
+      <li>
+        <a
+          href="/datenschutz/"
+        >
+          Datenschutz
+        </a>
+      </li>
+    </ul>
+  </footer>,
 ]
 `;
