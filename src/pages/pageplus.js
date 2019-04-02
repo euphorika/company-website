@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 
 import SEO from "../components/seo"
-import styles from "../components/pageplus.module.css"
 
 
 const pageplus = () => (
@@ -26,7 +25,7 @@ const pageplus = () => (
       {/*---------- Subtitle ----------*/}
       <h2 className="header--sub">Konzepte & Workshops</h2>
       {/*---------- Description ----------*/}
-      <p className="description" className="contact--link">Sie stehen noch ganz am Anfang mit Ihrer Geschäftsidee, Ihrem Start-Up oder dem Relaunch Ihres Unternehmens und wissen noch gar nicht, wohin die Reise konkret gehen soll? Gemeinsam arbeiten wir ein Konzept aus und beraten hinsichtlich strategischer Ausrichtung und technologischen Lösungen.</p>
+      <p className="description">Sie stehen noch ganz am Anfang mit Ihrer Geschäftsidee, Ihrem Start-Up oder dem Relaunch Ihres Unternehmens und wissen noch gar nicht, wohin die Reise konkret gehen soll? Gemeinsam arbeiten wir ein Konzept aus und beraten hinsichtlich strategischer Ausrichtung und technologischen Lösungen.</p>
       {/*---------- Contact Link ----------*/}
       <Link to="#" className="contact--link"> > anfragen</Link>
     </section>
