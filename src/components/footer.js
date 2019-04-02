@@ -4,7 +4,7 @@ import React from "react"
 import styles from "./footer.module.styl"
 
 const Footer = () => (
-  <footer class={styles.pageFooter}>
+  <footer className={styles.pageFooter}>
     <ul>
       <li>
         <Link to="/impressum/">Impressum</Link>

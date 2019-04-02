@@ -2,7 +2,7 @@
 
 exports[`Footer renders correctly 1`] = `
 <footer
-  class="pageFooter"
+  className="pageFooter"
 >
   <ul>
     <li>

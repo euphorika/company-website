@@ -88,7 +88,7 @@ Array [
     </main>
   </div>,
   <footer
-    class="pageFooter"
+    className="pageFooter"
   >
     <ul>
       <li>
