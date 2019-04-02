@@ -5,22 +5,21 @@ pageplus
     background-color: #fff;
 }
 
-
-h1 {
-	margin-top: 5rem;
+.headerMain {
+	background-color: #fff;
+	margin-top: 6rem;
 	margin-bottom: 5rem;
 	font-size: 5rem;
 		padding: 0 1.2rem;
+	}
 
-}
-
-h2 {
+.subheader {
 	font-size: 2.5rem;
 	padding-right: 1.5rem;
 }
-div.header--sub {
+.description {
 	display: block;
-	background-color: #e96161;
+	font-size: 1.25rem;
 }
 
 section {
@@ -28,6 +27,6 @@ section {
 	padding: 0 1.2rem;
 }
 
-a {
+.contactLink {
 	color: #000;
 }
