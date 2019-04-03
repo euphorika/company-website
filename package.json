@@ -38,7 +38,9 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest"
+    "test": "jest",
+    "predeploy": "yarn test",
+    "deploy": "yarn build"
   },
   "repository": {
     "type": "git",
