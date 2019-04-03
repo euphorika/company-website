@@ -2,12 +2,7 @@
 
 exports[`Header renders correctly 1`] = `
 <header
-  style={
-    Object {
-      "background": "rebeccapurple",
-      "marginBottom": "1.45rem",
-    }
-  }
+  className="siteHeader"
 >
   <div
     style={
