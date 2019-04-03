@@ -15,7 +15,7 @@ const IndexPage = () => (
       <Image />
     </div>
     <Link to="/pageplus/">Plus</Link>
-   </Layout>
+  </Layout>
 )
 
 export default IndexPage
