@@ -6,20 +6,20 @@ import styles from "./navigation.module.styl"
 const Navigation = () => (
   <nav className={styles.pageNavigation}>
     <ul>
-      <li>
-        <Link to="#">euphorika</Link>
+      <li className={styles.entry}>
+        <Link to="#">Euphorika</Link>
       </li>
-      <li>
-        <Link to="#">leistungen</Link>
+      <li className={styles.entry}>
+        <Link to="#">Leistungen</Link>
       </li>
-      <li>
-        <Link to="#">best cases</Link>
+      <li className={styles.entry}>
+        <Link to="#">Best Cases</Link>
       </li>
-      <li>
-        <Link to="#">jobs</Link>
+      <li className={styles.entry}>
+        <Link to="#">Jobs</Link>
       </li>
-      <li>
-        <Link to="#">kontakt</Link>
+      <li className={styles.entry}>
+        <Link to="#">Kontakt</Link>
       </li>
     </ul>
   </nav>
