@@ -1,9 +1,8 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "euphorika-company-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Our tiny company website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "gatsby": "^2.3.3",
     "gatsby-image": "^2.0.35",
@@ -11,6 +10,8 @@
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.11",
     "gatsby-plugin-sharp": "^2.0.32",
+    "gatsby-plugin-stylus": "^2.0.7",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^2.0.28",
     "gatsby-transformer-sharp": "^2.1.17",
     "prop-types": "^15.7.2",
@@ -27,7 +28,8 @@
     "react-test-renderer": "^16.8.6"
   },
   "keywords": [
-    "gatsby"
+    "euphorika",
+    "brand page"
   ],
   "license": "MIT",
   "scripts": {
@@ -40,9 +42,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/euphorika/company-website"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/euphorika/company-website/issues"
   }
 }

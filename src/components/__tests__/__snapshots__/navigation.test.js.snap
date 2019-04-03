@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation renders correctly 1`] = `
+<nav
+  className="pageNavigation"
+>
+  <ul>
+    <li>
+      <a
+        href="#"
+      >
+        euphorika
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        leistungen
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        best cases
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        jobs
+      </a>
+    </li>
+    <li>
+      <a
+        href="#"
+      >
+        kontakt
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<footer
+  className="pageFooter"
+>
+  <ul>
+    <li>
+      <a
+        href="/impressum/"
+      >
+        Impressum
+      </a>
+    </li>
+    <li>
+      <a
+        href="/datenschutz/"
+      >
+        Datenschutz
+      </a>
+    </li>
+  </ul>
+</footer>
+`;
