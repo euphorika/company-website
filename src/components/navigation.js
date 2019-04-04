@@ -7,19 +7,19 @@ const Navigation = () => (
   <nav className={styles.pageNavigation}>
     <ul>
       <li>
-        <Link to="#">euphorika</Link>
+        <Link to="/">euphorika</Link>
       </li>
       <li>
-        <Link to="#">leistungen</Link>
+        <Link to="/">leistungen</Link>
       </li>
       <li>
-        <Link to="#">best cases</Link>
+        <Link to="/">best cases</Link>
       </li>
       <li>
-        <Link to="#">jobs</Link>
+        <Link to="/">jobs</Link>
       </li>
       <li>
-        <Link to="#">kontakt</Link>
+        <Link to="/">kontakt</Link>
       </li>
     </ul>
   </nav>
