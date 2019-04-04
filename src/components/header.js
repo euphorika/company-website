@@ -1,14 +1,25 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+
+import ThemeContext from "../context/ThemeContext"
+import Navigation from "./navigation"
 
 import styles from "./header.module.styl"
 
 const Header = ({ siteTitle }) => (
   <header className={styles.siteHeader}>
-    <div className={styles.logo}>
-      <Link to="/">{siteTitle}</Link>
-    </div>
+    <ThemeContext.Consumer>
+      {theme => (
+        <div
+          className={styles.logo}
+          onClick={theme.toggleMobileNavigation}
+          role="button"
+        >
+          {siteTitle}
+        </div>
+      )}
+    </ThemeContext.Consumer>
+    <Navigation />
   </header>
 )
 

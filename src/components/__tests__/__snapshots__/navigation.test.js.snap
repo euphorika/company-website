@@ -1,45 +1,64 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Navigation renders correctly 1`] = `
-<nav
+<div
   className="pageNavigation"
 >
-  <ul>
-    <li>
-      <a
-        href="#"
+  <nav>
+    <ul>
+      <li
+        className="entry"
       >
-        euphorika
-      </a>
-    </li>
-    <li>
-      <a
-        href="#"
+        <a
+          href="#"
+        >
+          Euphorika
+        </a>
+      </li>
+      <li
+        className="entry"
       >
-        leistungen
-      </a>
-    </li>
-    <li>
-      <a
-        href="#"
+        <a
+          href="#"
+        >
+          Leistungen
+        </a>
+      </li>
+      <li
+        className="entry"
       >
-        best cases
-      </a>
-    </li>
-    <li>
-      <a
-        href="#"
+        <a
+          href="#"
+        >
+          Best Cases
+        </a>
+      </li>
+      <li
+        className="entry"
       >
-        jobs
-      </a>
-    </li>
-    <li>
-      <a
-        href="#"
+        <a
+          href="#"
+        >
+          Jobs
+        </a>
+      </li>
+      <li
+        className="entry"
       >
-        kontakt
-      </a>
-    </li>
-  </ul>
-</nav>
+        <a
+          href="#"
+        >
+          Kontakt
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div
+    className="closeNavigation"
+    onClick={[Function]}
+    role="button"
+  >
+    X
+  </div>
+</div>
 `;

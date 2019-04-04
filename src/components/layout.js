@@ -10,17 +10,11 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import Navigation from "./navigation"
 import Footer from "./footer"
 import "./normalize.css"
 import styles from "./layout.module.styl"
 
 class Layout extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { visibleOnMobile: false }
-  }
-
   render() {
     const { children } = this.props
 
@@ -38,7 +32,6 @@ class Layout extends React.Component {
         render={data => (
           <>
             <Header siteTitle={data.site.siteMetadata.title} />
-            <Navigation visibleOnMobile={this.state.visibleOnMobile} />
             <div className={styles.innerContainer}>
               <main className={styles.main}>{children}</main>
             </div>
