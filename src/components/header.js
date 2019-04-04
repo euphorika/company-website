@@ -6,21 +6,9 @@ import styles from "./header.module.styl"
 
 const Header = ({ siteTitle }) => (
   <header className={styles.siteHeader}>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
+    <div className={styles.headerContainer}>
       <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
+        <Link to="/" className={styles.headerLink}>
           {siteTitle}
         </Link>
       </h1>
