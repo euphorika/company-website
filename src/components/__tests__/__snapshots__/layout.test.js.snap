@@ -6,7 +6,13 @@ Array [
     className="siteHeader"
   >
     <div
-      className="headerContainer"
+      style={
+        Object {
+          "margin": "0 auto",
+          "maxWidth": 960,
+          "padding": "1.45rem 1.0875rem",
+        }
+      }
     >
       <h1
         style={
@@ -16,8 +22,13 @@ Array [
         }
       >
         <a
-          className="headerLink"
           href="/"
+          style={
+            Object {
+              "color": "white",
+              "textDecoration": "none",
+            }
+          }
         >
           Default Starter
         </a>

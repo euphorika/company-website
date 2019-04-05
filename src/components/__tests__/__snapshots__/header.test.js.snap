@@ -5,7 +5,13 @@ exports[`Header renders correctly 1`] = `
   className="siteHeader"
 >
   <div
-    className="headerContainer"
+    style={
+      Object {
+        "margin": "0 auto",
+        "maxWidth": 960,
+        "padding": "1.45rem 1.0875rem",
+      }
+    }
   >
     <h1
       style={
@@ -15,8 +21,13 @@ exports[`Header renders correctly 1`] = `
       }
     >
       <a
-        className="headerLink"
         href="/"
+        style={
+          Object {
+            "color": "white",
+            "textDecoration": "none",
+          }
+        }
       >
         Default Starter
       </a>
