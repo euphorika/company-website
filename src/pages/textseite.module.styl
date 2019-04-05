@@ -1,12 +1,33 @@
 .content-main
+  margin: 0;
+  height: 100%
   @media only screen and (min-width: 1024px)
     display: flex
 
 .column-left
   display: block
-  width: 100%
+  width: 40%
+  height: 100vh
   text-align: center
   vertical-align: middle
-
+  position: fixed
+  left: 0
+  top: 50%
+  .title
+    font-size: 36px
+    @media only screen and (min-width: 1023px)
+      font-size: 84px
 .column-right
-    width: 100%
+  width: 60%
+  margin-left: 40%
+  overflow: auto
+  height: 62vh
+  padding: 10px 5px
+  @media only screen and (min-width: 1023px)
+    height: 68vh
+  p
+    font-size: 12px
+    @media only screen and (min-width: 1023px)
+      font-size: 18px
+    @media only screen and (min-width: 1365px)
+      font-size: 24px

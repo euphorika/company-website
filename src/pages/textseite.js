@@ -10,7 +10,7 @@ const Textseite = () => (
     <SEO title="Textseite" />
     <div className={styles.contentMain}>
       <div className={styles.columnLeft}>
-        <h1>Textseite</h1>
+        <h1 className={styles.title}>Textseite</h1>
       </div>
       <div className={styles.columnRight}>
         <p>
