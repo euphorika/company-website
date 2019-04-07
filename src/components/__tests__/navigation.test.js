@@ -6,7 +6,7 @@ import Navigation from "../navigation"
 describe("Navigation", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<Navigation />)
+      .create(<Navigation fontColor="inherit" />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
