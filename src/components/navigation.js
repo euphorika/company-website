@@ -1,11 +1,13 @@
 import React from "react"
+import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import Helmet from "react-helmet"
 
 import ThemeContext from "../context/ThemeContext"
 
 import styles from "./navigation.module.styl"
 
-const Navigation = () => (
+const Navigation = ({ fontColor }) => (
   <ThemeContext.Consumer>
     {theme => {
       const toggleVisibilityClass = theme.navigationVisibleOnMobile
@@ -14,6 +16,14 @@ const Navigation = () => (
 
       return (
         <div className={`${styles.pageNavigation}${toggleVisibilityClass}`}>
+          <Helmet>
+            <style type="text/css">{`
+              .${styles.pageNavigation} .${styles.entry} a,
+              .${styles.closeNavigation} {
+                color: ${fontColor}
+              }
+            `}</style>
+          </Helmet>
           <nav>
             <ul>
               <li className={styles.entry}>
@@ -47,3 +57,7 @@ const Navigation = () => (
 )
 
 export default Navigation
+
+Navigation.propTypes = {
+  fontColor: PropTypes.string.isRequired,
+}
