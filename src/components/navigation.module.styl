@@ -1,3 +1,5 @@
+@require '../stylus/rupture.config'
+
 .page-navigation
   display: flex
   align-items: center
@@ -15,6 +17,17 @@
   &.visible-on-mobile
     width: 100%
 
+    +above('m')
+      width: auto
+
+  +above('m')
+    width: auto
+    top: 10px
+    left: 10px
+    right: auto
+    bottom: auto
+    background: none
+
   .entry
     text-transform: lowercase
 
@@ -26,3 +39,6 @@
     position: absolute
     top: 10px
     right: 10px
+
+    +above('m')
+      display: none
