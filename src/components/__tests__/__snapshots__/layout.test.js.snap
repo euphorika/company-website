@@ -6,76 +6,73 @@ Array [
     className="siteHeader"
   >
     <div
-      style={
-        Object {
-          "margin": "0 auto",
-          "maxWidth": 960,
-          "padding": "1.45rem 1.0875rem",
-        }
-      }
+      className="logo"
+      onClick={[Function]}
+      role="button"
     >
-      <h1
-        style={
-          Object {
-            "margin": 0,
-          }
-        }
+      Default Starter
+    </div>
+    <div
+      className="pageNavigation"
+    >
+      <nav>
+        <ul>
+          <li
+            className="entry"
+          >
+            <a
+              href="#"
+            >
+              Euphorika
+            </a>
+          </li>
+          <li
+            className="entry"
+          >
+            <a
+              href="#"
+            >
+              Leistungen
+            </a>
+          </li>
+          <li
+            className="entry"
+          >
+            <a
+              href="#"
+            >
+              Best Cases
+            </a>
+          </li>
+          <li
+            className="entry"
+          >
+            <a
+              href="#"
+            >
+              Jobs
+            </a>
+          </li>
+          <li
+            className="entry"
+          >
+            <a
+              href="#"
+            >
+              Kontakt
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        className="closeNavigation"
+        onClick={[Function]}
+        role="button"
       >
-        <a
-          href="/"
-          style={
-            Object {
-              "color": "white",
-              "textDecoration": "none",
-            }
-          }
-        >
-          Default Starter
-        </a>
-      </h1>
+        X
+      </div>
     </div>
   </header>,
-  <nav
-    className="pageNavigation"
-  >
-    <ul>
-      <li>
-        <a
-          href="#"
-        >
-          euphorika
-        </a>
-      </li>
-      <li>
-        <a
-          href="#"
-        >
-          leistungen
-        </a>
-      </li>
-      <li>
-        <a
-          href="#"
-        >
-          best cases
-        </a>
-      </li>
-      <li>
-        <a
-          href="#"
-        >
-          jobs
-        </a>
-      </li>
-      <li>
-        <a
-          href="#"
-        >
-          kontakt
-        </a>
-      </li>
-    </ul>
-  </nav>,
   <div
     className="innerContainer"
   >

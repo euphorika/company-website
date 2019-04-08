@@ -1,2 +1,44 @@
+@require '../stylus/rupture.config'
+
 .page-navigation
-  margin: 0
+  display: flex
+  align-items: center
+  width: 0
+  background: #fff
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  overflow-x: hidden
+  z-index: 100
+  transition: width .5s
+
+  &.visible-on-mobile
+    width: 100%
+
+    +above('m')
+      width: auto
+
+  +above('m')
+    width: auto
+    top: 10px
+    left: 10px
+    right: auto
+    bottom: auto
+    background: none
+
+  .entry
+    text-transform: lowercase
+
+    a
+      text-decoration: none
+      color: #000
+
+  .close-navigation
+    position: absolute
+    top: 10px
+    right: 10px
+
+    +above('m')
+      display: none

@@ -1,39 +1,44 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import Helmet from "react-helmet"
+
+import ThemeContext from "../context/ThemeContext"
+import Navigation from "./navigation"
 
 import styles from "./header.module.styl"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, fontColor }) => (
   <header className={styles.siteHeader}>
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
+    <Helmet>
+      <style type="text/css">{`
+        .${styles.siteHeader} .${styles.logo} {
+          color: ${fontColor}
+        }
+      `}</style>
+    </Helmet>
+    <ThemeContext.Consumer>
+      {theme => (
+        <div
+          className={styles.logo}
+          onClick={theme.toggleMobileNavigation}
+          role="button"
         >
           {siteTitle}
-        </Link>
-      </h1>
-    </div>
+        </div>
+      )}
+    </ThemeContext.Consumer>
+    <Navigation fontColor={fontColor} />
   </header>
 )
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  fontColor: PropTypes.string,
 }
 
 Header.defaultProps = {
   siteTitle: ``,
+  fontColor: "inherit",
 }
 
 export default Header
