@@ -32,9 +32,7 @@ class Layout extends React.Component {
         render={data => (
           <>
             <Header siteTitle={data.site.siteMetadata.title} />
-            <div className={styles.innerContainer}>
-              <main className={styles.main}>{children}</main>
-            </div>
+            <main className={styles.main}>{children}</main>
             <Footer />
           </>
         )}

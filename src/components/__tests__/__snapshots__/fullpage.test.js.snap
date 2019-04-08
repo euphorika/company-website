@@ -4,6 +4,6 @@ exports[`FullPage renders correctly 1`] = `
 <div
   className="fullPage"
 >
-  FullPage
+  Page
 </div>
 `;

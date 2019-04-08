@@ -8,7 +8,9 @@ import FullPage from "../components/fullpage"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <FullPage />
+    <FullPage>FullPage 1</FullPage>
+    <FullPage>FullPage 2</FullPage>
+    <FullPage>FullPage 3</FullPage>
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
