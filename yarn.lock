@@ -10238,6 +10238,11 @@ scroll-behavior@^0.9.9:
     dom-helpers "^3.2.1"
     invariant "^2.2.2"
 
+scroll-snap@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/scroll-snap/-/scroll-snap-1.0.6.tgz#369e8ef1c15f00c6299aa8a8a1f7f794fa5fda22"
+  integrity sha512-9QPdQFwZ31A7wQBDJxXblvK0+pdYyNh7tn4wVOsS5bbqhj/ZBFFlgHokAxbogiXcTdUIdq2UBovXf/3gylcKYw==
+
 seek-bzip@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/seek-bzip/-/seek-bzip-1.0.5.tgz#cfe917cb3d274bcffac792758af53173eb1fabdc"

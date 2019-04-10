@@ -73,17 +73,13 @@ Array [
       </div>
     </div>
   </header>,
-  <div
-    className="innerContainer"
+  <main
+    className="main"
   >
-    <main
-      className="main"
-    >
-      <div>
-        Children
-      </div>
-    </main>
-  </div>,
+    <div>
+      Children
+    </div>
+  </main>,
   <footer
     className="pageFooter"
   >
