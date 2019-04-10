@@ -9,9 +9,21 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
     <PageSnapContainer>
-      <FullPage>FullPage 1</FullPage>
-      <FullPage>FullPage 2</FullPage>
-      <FullPage>FullPage 3</FullPage>
+      <FullPage>
+        <div style={{ background: "hotpink", width: "100%", height: "100%" }} />
+      </FullPage>
+      <FullPage>
+        <div style={{ background: "azure", width: "100%", height: "100%" }} />
+      </FullPage>
+      <FullPage>
+        <div
+          style={{
+            background: "blanchedalmond",
+            width: "100%",
+            height: "100%",
+          }}
+        />
+      </FullPage>
     </PageSnapContainer>
   </Layout>
 )
