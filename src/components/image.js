@@ -1,16 +1,17 @@
 import React from "react"
+import Img from "gatsby-image"
 import PropTypes from "prop-types"
 
-import styles from './image.module.styl'
+import styles from "./image.module.styl"
 
-const Image = () => (
+const Image = ({ fluid }) => (
   <div className={styles.imageContainer}>
-    Image Container
+    <Img fluid={fluid} />
   </div>
 )
 
 Image.propTypes = {
-  file: PropTypes.string.isRequired
+  fluid: PropTypes.object.isRequired,
 }
 
 export default Image
