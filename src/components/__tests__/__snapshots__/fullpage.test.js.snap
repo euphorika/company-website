@@ -3,6 +3,11 @@
 exports[`FullPage renders correctly 1`] = `
 <div
   className="fullPage"
+  style={
+    Object {
+      "backgroundColor": "#fff",
+    }
+  }
 >
   Page
 </div>
