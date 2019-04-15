@@ -50,7 +50,7 @@ const IndexPage = () => {
 
   const fullPagesConfig = [
     {
-      headerFontColor: "",
+      headerFontColor: "inherit",
       backgroundColor: "",
       backgroundImage: data.example1.childImageSharp.fluid,
     },

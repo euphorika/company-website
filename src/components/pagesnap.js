@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import ScrollSnap from "scroll-snap"
 
+import ThemeContext from "../context/ThemeContext"
+
 import styles from "./pagesnap.module.styl"
 
 class PageSnapContainer extends React.Component {
@@ -23,10 +25,14 @@ class PageSnapContainer extends React.Component {
     }
 
     const callback = () => {
-      this.calculateIndex(
-        this.state.containerHeight,
-        this.snapContainer.current.scrollTop
+      const index = Math.ceil(
+        this.snapContainer.current.scrollTop / this.state.containerHeight
       )
+      const fontColor = this.props.children[index].props.headerFontColor
+
+      if (fontColor) {
+        this.context.setHeaderFontColor(fontColor)
+      }
     }
     const element = this.snapContainer.current
     const snapObject = new ScrollSnap(element, snapConfig)
@@ -43,11 +49,13 @@ class PageSnapContainer extends React.Component {
     this.state.snapObject.unbind()
   }
 
-  calculateIndex = (windowHeight, scrollTop) => {
+  /*calculateIndex = (windowHeight, scrollTop) => {
     this.setState({
       index: Math.ceil(scrollTop / windowHeight),
     })
-  }
+
+    console.log(this.context)
+  }*/
 
   render() {
     const { children } = this.props
@@ -59,6 +67,8 @@ class PageSnapContainer extends React.Component {
     )
   }
 }
+
+PageSnapContainer.contextType = ThemeContext
 
 PageSnapContainer.propTypes = {
   children: PropTypes.node.isRequired,
