@@ -10,6 +10,8 @@ class PageSnapContainer extends React.Component {
     this.snapContainer = React.createRef()
     this.state = {
       snapObject: null,
+      containerHeight: 0,
+      index: 0,
     }
   }
 
@@ -21,7 +23,10 @@ class PageSnapContainer extends React.Component {
     }
 
     const callback = () => {
-      console.log("snap")
+      this.calculateIndex(
+        this.state.containerHeight,
+        this.snapContainer.current.scrollTop
+      )
     }
     const element = this.snapContainer.current
     const snapObject = new ScrollSnap(element, snapConfig)
@@ -30,11 +35,18 @@ class PageSnapContainer extends React.Component {
 
     this.setState({
       snapObject: snapObject,
+      containerHeight: this.snapContainer.current.offsetHeight,
     })
   }
 
   componentWillUnmount() {
     this.state.snapObject.unbind()
+  }
+
+  calculateIndex = (windowHeight, scrollTop) => {
+    this.setState({
+      index: Math.ceil(scrollTop / windowHeight),
+    })
   }
 
   render() {
