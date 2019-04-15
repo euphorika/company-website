@@ -49,14 +49,6 @@ class PageSnapContainer extends React.Component {
     this.state.snapObject.unbind()
   }
 
-  /*calculateIndex = (windowHeight, scrollTop) => {
-    this.setState({
-      index: Math.ceil(scrollTop / windowHeight),
-    })
-
-    console.log(this.context)
-  }*/
-
   render() {
     const { children } = this.props
 
