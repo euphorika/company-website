@@ -1,13 +1,12 @@
 import React from "react"
-import renderer from "react-test-renderer"
+import { mount } from "enzyme"
+import toJson from 'enzyme-to-json'
 
 import PageSnapContainer from "../pagesnap"
 
 describe("PageSnapContainer", () => {
-  it.skip("renders correctly", () => {
-    const tree = renderer
-      .create(<PageSnapContainer><div>Snap Entry 1</div><div>Snap Entry 2</div></PageSnapContainer>)
-      .toJSON()
-    expect(tree).toMatchSnapshot()
+  it("renders correctly", () => {
+    const wrapper = mount(<PageSnapContainer><div>Snap Entry 1</div><div>Snap Entry 2</div></PageSnapContainer>)
+    expect(toJson(wrapper)).toMatchSnapshot()
   })
 })
