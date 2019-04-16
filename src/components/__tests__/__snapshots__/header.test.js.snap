@@ -8,6 +8,11 @@ exports[`Header renders correctly 1`] = `
     className="logo"
     onClick={[Function]}
     role="button"
+    style={
+      Object {
+        "color": "",
+      }
+    }
   >
     Default Starter
   </div>

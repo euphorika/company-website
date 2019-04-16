@@ -9,6 +9,11 @@ Array [
       className="logo"
       onClick={[Function]}
       role="button"
+      style={
+        Object {
+          "color": "",
+        }
+      }
     >
       Default Starter
     </div>

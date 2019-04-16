@@ -19,6 +19,7 @@ const FullPage = ({ children, backgroundColor }) => {
 
 FullPage.propTypes = {
   children: PropTypes.node.isRequired,
+  headerFontColor: PropTypes.string,
   backgroundColor: PropTypes.string,
 }
 

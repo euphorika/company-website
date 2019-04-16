@@ -48,25 +48,51 @@ const IndexPage = () => {
     }
   `)
 
+  const fullPagesConfig = [
+    {
+      headerFontColor: "inherit",
+      backgroundColor: "",
+      backgroundImage: data.example1.childImageSharp.fluid,
+    },
+    {
+      headerFontColor: "green",
+      backgroundColor: "#fcc4c5",
+      backgroundImage: data.example2.childImageSharp.fluid,
+    },
+    {
+      headerFontColor: "red",
+      backgroundColor: "#d983c0",
+      backgroundImage: data.example3.childImageSharp.fluid,
+    },
+    {
+      headerFontColor: "blue",
+      backgroundColor: "#c9e8fc",
+      backgroundImage: data.example4.childImageSharp.fluid,
+    },
+    {
+      headerFontColor: "aqua",
+      backgroundColor: "#00b8d2",
+      backgroundImage: data.example5.childImageSharp.fluid,
+    },
+  ]
+
   return (
     <Layout>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <SEO title="Home" />
       <PageSnapContainer>
-        <FullPage>
-          <Image fluid={data.example1.childImageSharp.fluid} />
-        </FullPage>
-        <FullPage backgroundColor="#fcc4c5">
-          <Image fluid={data.example2.childImageSharp.fluid} />
-        </FullPage>
-        <FullPage backgroundColor="#d983c0">
-          <Image fluid={data.example3.childImageSharp.fluid} />
-        </FullPage>
-        <FullPage backgroundColor="#c9e8fc">
-          <Image fluid={data.example4.childImageSharp.fluid} />
-        </FullPage>
-        <FullPage backgroundColor="#00b8d2">
-          <Image fluid={data.example5.childImageSharp.fluid} />
-        </FullPage>
+        {fullPagesConfig.map((value, key) => (
+          <FullPage
+            key={key}
+            {...(!!value.headerFontColor
+              ? { headerFontColor: value.headerFontColor }
+              : {})}
+            {...(!!value.backgroundColor
+              ? { backgroundColor: value.backgroundColor }
+              : {})}
+          >
+            <Image fluid={value.backgroundImage} />
+          </FullPage>
+        ))}
       </PageSnapContainer>
     </Layout>
   )
