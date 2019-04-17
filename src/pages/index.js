@@ -1,5 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-mdx"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -22,7 +23,9 @@ const IndexPage = () => {
               image
               alt
             }
-            excerpt
+            code {
+              body
+            }
           }
         }
       }
@@ -80,8 +83,11 @@ const IndexPage = () => {
           >
             <Image
               fluid={data[value.node.frontmatter.image].childImageSharp.fluid}
+              title={value.node.frontmatter.title}
               alt={value.node.frontmatter.alt}
-            />
+            >
+              <MDXRenderer>{value.node.code.body}</MDXRenderer>
+            </Image>
           </FullPage>
         ))}
       </PageSnapContainer>
