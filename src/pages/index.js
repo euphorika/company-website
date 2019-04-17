@@ -10,6 +10,20 @@ import Image from "../components/image"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
+      allMdx {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              headerFontColor
+              backgroundColor
+              image
+            }
+            excerpt
+          }
+        }
+      }
       example1: file(relativePath: { eq: "euphorika-bg-1.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4928) {
@@ -48,49 +62,23 @@ const IndexPage = () => {
     }
   `)
 
-  const fullPagesConfig = [
-    {
-      headerFontColor: "inherit",
-      backgroundColor: "",
-      backgroundImage: data.example1.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "green",
-      backgroundColor: "#fcc4c5",
-      backgroundImage: data.example2.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "red",
-      backgroundColor: "#d983c0",
-      backgroundImage: data.example3.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "blue",
-      backgroundColor: "#c9e8fc",
-      backgroundImage: data.example4.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "aqua",
-      backgroundColor: "#00b8d2",
-      backgroundImage: data.example5.childImageSharp.fluid,
-    },
-  ]
-
   return (
     <Layout>
       <SEO title="Home" />
       <PageSnapContainer>
-        {fullPagesConfig.map((value, key) => (
+        {data.allMdx.edges.map((value, key) => (
           <FullPage
             key={key}
-            {...(!!value.headerFontColor
-              ? { headerFontColor: value.headerFontColor }
+            {...(!!value.node.frontmatter.headerFontColor
+              ? { headerFontColor: value.node.frontmatter.headerFontColor }
               : {})}
-            {...(!!value.backgroundColor
-              ? { backgroundColor: value.backgroundColor }
+            {...(!!value.node.frontmatter.backgroundColor
+              ? { backgroundColor: value.node.frontmatter.backgroundColor }
               : {})}
           >
-            <Image fluid={value.backgroundImage} />
+            <Image
+              fluid={data[value.node.frontmatter.image].childImageSharp.fluid}
+            />
           </FullPage>
         ))}
       </PageSnapContainer>
