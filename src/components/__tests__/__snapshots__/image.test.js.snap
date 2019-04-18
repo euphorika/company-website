@@ -8,6 +8,7 @@ exports[`Image renders correctly 1`] = `
     className=" gatsby-image-wrapper"
     style={
       Object {
+        "height": "100%",
         "overflow": "hidden",
         "position": "relative",
       }
@@ -30,10 +31,11 @@ exports[`Image renders correctly 1`] = `
         srcSet="set1, set2"
         style={
           Object {
+            "fontFamily": "\\"object-fit: cover; object-position: 30% 50%\\"",
             "height": "100%",
             "left": 0,
             "objectFit": "cover",
-            "objectPosition": "center",
+            "objectPosition": "30% 50%",
             "opacity": 0,
             "position": "absolute",
             "top": 0,

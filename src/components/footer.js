@@ -7,10 +7,10 @@ const Footer = () => (
   <footer className={styles.pageFooter}>
     <ul>
       <li>
-        <Link to="/impressum/">Impressum</Link>
+        <Link to="/legal-notice/">Impressum</Link>
       </li>
       <li>
-        <Link to="/datenschutz/">Datenschutz</Link>
+        <Link to="/data-protection-and-privacy/">Datenschutz</Link>
       </li>
     </ul>
   </footer>

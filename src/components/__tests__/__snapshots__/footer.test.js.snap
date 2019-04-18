@@ -7,14 +7,14 @@ exports[`Footer renders correctly 1`] = `
   <ul>
     <li>
       <a
-        href="/impressum/"
+        href="/legal-notice/"
       >
         Impressum
       </a>
     </li>
     <li>
       <a
-        href="/datenschutz/"
+        href="/data-protection-and-privacy/"
       >
         Datenschutz
       </a>

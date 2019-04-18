@@ -6,6 +6,7 @@ exports[`FullPage renders correctly 1`] = `
   style={
     Object {
       "backgroundColor": "#fff",
+      "color": "inherit",
     }
   }
 >
