@@ -2,9 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageSnapContainer from "../components/pagesnap"
+import PageSnapLayout from "../components/pagesnap-layout"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
 
@@ -68,30 +66,27 @@ const IndexPage = () => {
   `)
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <PageSnapContainer>
-        {data.allMdx.edges.map((value, key) => (
-          <FullPage
-            key={key}
-            {...(!!value.node.frontmatter.headerFontColor
-              ? { headerFontColor: value.node.frontmatter.headerFontColor }
-              : {})}
-            {...(!!value.node.frontmatter.backgroundColor
-              ? { backgroundColor: value.node.frontmatter.backgroundColor }
-              : {})}
+    <PageSnapLayout title="Home">
+      {data.allMdx.edges.map((value, key) => (
+        <FullPage
+          key={key}
+          {...(!!value.node.frontmatter.headerFontColor
+            ? { headerFontColor: value.node.frontmatter.headerFontColor }
+            : {})}
+          {...(!!value.node.frontmatter.backgroundColor
+            ? { backgroundColor: value.node.frontmatter.backgroundColor }
+            : {})}
+        >
+          <Image
+            fluid={data[value.node.frontmatter.image].childImageSharp.fluid}
+            title={value.node.frontmatter.title}
+            alt={value.node.frontmatter.alt}
           >
-            <Image
-              fluid={data[value.node.frontmatter.image].childImageSharp.fluid}
-              title={value.node.frontmatter.title}
-              alt={value.node.frontmatter.alt}
-            >
-              <MDXRenderer>{value.node.code.body}</MDXRenderer>
-            </Image>
-          </FullPage>
-        ))}
-      </PageSnapContainer>
-    </Layout>
+            <MDXRenderer>{value.node.code.body}</MDXRenderer>
+          </Image>
+        </FullPage>
+      ))}
+    </PageSnapLayout>
   )
 }
 
