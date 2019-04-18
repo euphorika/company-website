@@ -4,6 +4,25 @@ exports[`Slider renders correctly 1`] = `
 <div
   className="sliderContainer"
 >
-  Slider
+  <div
+    className="images"
+  >
+    <img
+      src="https://example.com/img1.jpg"
+    />
+    <img
+      src="https://example.com/img2.jpg"
+    />
+  </div>
+  <div
+    className="controls"
+  >
+    <button>
+      Left
+    </button>
+    <button>
+      Right
+    </button>
+  </div>
 </div>
 `;

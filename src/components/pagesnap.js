@@ -14,6 +14,7 @@ class PageSnapContainer extends React.Component {
       snapObject: null,
       containerHeight: 0,
       index: 0,
+      children: React.Children.toArray(this.props.children),
     }
   }
 
@@ -28,7 +29,7 @@ class PageSnapContainer extends React.Component {
       const index = Math.ceil(
         this.snapContainer.current.scrollTop / this.state.containerHeight
       )
-      const fontColor = this.props.children[index].props.headerFontColor
+      const fontColor = this.state.children[index].props.headerFontColor
 
       if (fontColor) {
         this.context.setHeaderFontColor(fontColor)

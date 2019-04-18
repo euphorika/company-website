@@ -1,11 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageSnapContainer from "../components/pagesnap"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
+import Slider from "../components/slider"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -93,6 +95,13 @@ const IndexPage = () => {
             <Image fluid={value.backgroundImage} />
           </FullPage>
         ))}
+        <FullPage headerFontColor="inherit">
+          <Slider>
+            <Img fluid={data.example1.childImageSharp.fluid} />
+            <Img fluid={data.example2.childImageSharp.fluid} />
+            <Img fluid={data.example3.childImageSharp.fluid} />
+          </Slider>
+        </FullPage>
       </PageSnapContainer>
     </Layout>
   )
