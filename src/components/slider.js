@@ -8,7 +8,7 @@ const Slider = ({ children }) => (
     <div className={styles.images}>{children}</div>
     <div className={styles.controls}>
       <button>Left</button>
-      <button>Right</button>
+      <button className={styles.right}>Right</button>
     </div>
   </div>
 )
