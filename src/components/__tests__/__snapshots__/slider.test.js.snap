@@ -17,10 +17,15 @@ exports[`Slider renders correctly 1`] = `
   <div
     className="controls"
   >
-    <button>
+    <button
+      onClick={[Function]}
+    >
       Left
     </button>
-    <button>
+    <button
+      className="right"
+      onClick={[Function]}
+    >
       Right
     </button>
   </div>

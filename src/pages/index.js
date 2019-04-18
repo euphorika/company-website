@@ -94,9 +94,24 @@ const IndexPage = () => {
         ))}
         <FullPage headerFontColor="inherit">
           <Slider>
-            <Img fluid={data.example1.childImageSharp.fluid} />
-            <Img fluid={data.example2.childImageSharp.fluid} />
-            <Img fluid={data.example3.childImageSharp.fluid} />
+            <div>
+              <Img
+                style={{ height: "100%" }}
+                fluid={data.example1.childImageSharp.fluid}
+              />
+            </div>
+            <div>
+              <Img
+                style={{ height: "100%" }}
+                fluid={data.example2.childImageSharp.fluid}
+              />
+            </div>
+            <div>
+              <Img
+                style={{ height: "100%" }}
+                fluid={data.example3.childImageSharp.fluid}
+              />
+            </div>
           </Slider>
         </FullPage>
       </PageSnapContainer>
