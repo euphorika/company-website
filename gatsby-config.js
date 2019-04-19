@@ -28,8 +28,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/data`,
+        name: `home-fullpage`,
+        path: `${__dirname}/src/data/home/fullpage`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `home-scrollingtext`,
+        path: `${__dirname}/src/data/home/scrollingtext`,
       },
     },
     `gatsby-transformer-sharp`,

@@ -11,20 +11,42 @@ import ScrollingTextBlock from "../components/scrollingtext-block"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(sort: { fields: [frontmatter___order], order: ASC }) {
+      teaser: allFile(
+        filter: { sourceInstanceName: { eq: "home-fullpage" } }
+        sort: { order: ASC, fields: relativePath }
+      ) {
         edges {
           node {
-            id
-            frontmatter {
-              order
-              title
-              headerFontColor
-              backgroundColor
-              image
-              alt
+            relativePath
+            childMdx {
+              frontmatter {
+                title
+                headerFontColor
+                backgroundColor
+                image
+                alt
+              }
+              code {
+                body
+              }
             }
-            code {
-              body
+          }
+        }
+      }
+      text: allFile(
+        filter: { sourceInstanceName: { eq: "home-scrollingtext" } }
+        sort: { order: ASC, fields: relativePath }
+      ) {
+        edges {
+          node {
+            relativePath
+            childMdx {
+              frontmatter {
+                title
+              }
+              code {
+                body
+              }
             }
           }
         }
@@ -69,83 +91,43 @@ const IndexPage = () => {
 
   return (
     <PageSnapLayout title="Home">
-      {data.allMdx.edges.map((value, key) => (
+      {data.teaser.edges.map((value, key) => (
         <FullPage
           key={key}
-          {...(!!value.node.frontmatter.headerFontColor
-            ? { headerFontColor: value.node.frontmatter.headerFontColor }
+          {...(!!value.node.childMdx.frontmatter.headerFontColor
+            ? {
+                headerFontColor:
+                  value.node.childMdx.frontmatter.headerFontColor,
+              }
             : {})}
-          {...(!!value.node.frontmatter.backgroundColor
-            ? { backgroundColor: value.node.frontmatter.backgroundColor }
+          {...(!!value.node.childMdx.frontmatter.backgroundColor
+            ? {
+                backgroundColor:
+                  value.node.childMdx.frontmatter.backgroundColor,
+              }
             : {})}
         >
           <Image
-            fluid={data[value.node.frontmatter.image].childImageSharp.fluid}
-            title={value.node.frontmatter.title}
-            alt={value.node.frontmatter.alt}
+            fluid={
+              data[value.node.childMdx.frontmatter.image].childImageSharp.fluid
+            }
+            title={value.node.childMdx.frontmatter.title}
+            alt={value.node.childMdx.frontmatter.alt}
           >
-            <MDXRenderer>{value.node.code.body}</MDXRenderer>
+            <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
           </Image>
         </FullPage>
       ))}
       <FullPage headerFontColor="#000" backgroundColor="#fff">
         <ScrollingText title="Texseite">
-          <ScrollingTextBlock title="3D, Text & Fotoshooting">
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet.
-            </p>
-          </ScrollingTextBlock>
-          <ScrollingTextBlock title="Konzepte & Workshops">
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet.
-            </p>
-          </ScrollingTextBlock>
-          <ScrollingTextBlock title="Software & Systemschulungen">
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet.
-            </p>
-          </ScrollingTextBlock>
-          <ScrollingTextBlock title="Whitelabel Service">
-            <p>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-              nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-              erat, sed diam voluptua. At vero eos et accusam et justo duo
-              dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
-              sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
-              amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-              invidunt ut labore et dolore magna aliquyam erat, sed diam
-              voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-              Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum
-              dolor sit amet.
-            </p>
-          </ScrollingTextBlock>
+          {data.text.edges.map((value, key) => (
+            <ScrollingTextBlock
+              key={key}
+              title={value.node.childMdx.frontmatter.title}
+            >
+              <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
+            </ScrollingTextBlock>
+          ))}
         </ScrollingText>
       </FullPage>
     </PageSnapLayout>
