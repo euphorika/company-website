@@ -1,8 +1,8 @@
 import React from "react"
 import { shallow } from "enzyme"
 import toJson from 'enzyme-to-json'
-
 import { useStaticQuery } from "gatsby"
+
 import PageSnapLayout from "../pagesnap-layout"
 
 beforeEach(() => {
