@@ -1,22 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ScrollingText renders correctly 1`] = `
-<div
-  className="contentMain"
+<section
+  className="scrollingTextContainer"
 >
   <div
-    className="columnLeft"
+    className="title"
   >
-    <h1
-      className="title"
-    >
-      Awesome Headline
-    </h1>
+    <h2
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Awesome Headline",
+        }
+      }
+    />
   </div>
   <div
-    className="columnRight"
+    className="body"
   >
     Awesome Content
   </div>
-</div>
+</section>
 `;

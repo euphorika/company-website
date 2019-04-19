@@ -4,12 +4,12 @@ import PropTypes from "prop-types"
 import styles from "./scrollingtext.module.styl"
 
 const ScrollingText = ({ children, title }) => (
-  <div className={styles.contentMain}>
-    <div className={styles.columnLeft}>
-      <h1 className={styles.title}>{title}</h1>
+  <section className={styles.scrollingTextContainer}>
+    <div className={styles.title}>
+      <h2 dangerouslySetInnerHTML={{ __html: title }} />
     </div>
-    <div className={styles.columnRight}>{children}</div>
-  </div>
+    <div className={styles.body}>{children}</div>
+  </section>
 )
 
 ScrollingText.propTypes = {
