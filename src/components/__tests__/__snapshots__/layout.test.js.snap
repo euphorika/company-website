@@ -78,9 +78,7 @@ Array [
       </div>
     </div>
   </header>,
-  <main
-    className="main"
-  >
+  <main>
     <div>
       Children
     </div>
