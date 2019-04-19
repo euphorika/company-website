@@ -4,7 +4,9 @@ exports[`Footer renders correctly 1`] = `
 <footer
   className="pageFooter"
 >
-  <ul>
+  <ul
+    className="legalAdvice"
+  >
     <li>
       <a
         href="/legal-notice/"

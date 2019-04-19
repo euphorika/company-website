@@ -5,7 +5,7 @@ import styles from "./footer.module.styl"
 
 const Footer = () => (
   <footer className={styles.pageFooter}>
-    <ul>
+    <ul className={styles.legalAdvice}>
       <li>
         <Link to="/legal-notice/">Impressum</Link>
       </li>

@@ -86,7 +86,9 @@ Array [
   <footer
     className="pageFooter"
   >
-    <ul>
+    <ul
+      className="legalAdvice"
+    >
       <li>
         <a
           href="/legal-notice/"
