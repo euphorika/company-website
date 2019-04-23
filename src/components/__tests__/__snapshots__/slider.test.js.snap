@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider renders correctly 1`] = `
+<div
+  className="sliderContainer"
+>
+  <div
+    className="images"
+  >
+    <img
+      src="https://example.com/img1.jpg"
+    />
+    <img
+      src="https://example.com/img2.jpg"
+    />
+  </div>
+  <div
+    className="controls"
+  >
+    <button
+      onClick={[Function]}
+    >
+      Left
+    </button>
+    <button
+      className="right"
+      onClick={[Function]}
+    >
+      Right
+    </button>
+  </div>
+</div>
+`;

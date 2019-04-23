@@ -1,12 +1,14 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageSnapContainer from "../components/pagesnap"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
+import Slider from "../components/slider"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -90,6 +92,28 @@ const IndexPage = () => {
             </Image>
           </FullPage>
         ))}
+        <FullPage headerFontColor="inherit">
+          <Slider>
+            <div>
+              <Img
+                style={{ height: "100%" }}
+                fluid={data.example1.childImageSharp.fluid}
+              />
+            </div>
+            <div>
+              <Img
+                style={{ height: "100%" }}
+                fluid={data.example2.childImageSharp.fluid}
+              />
+            </div>
+            <div>
+              <Img
+                style={{ height: "100%" }}
+                fluid={data.example3.childImageSharp.fluid}
+              />
+            </div>
+          </Slider>
+        </FullPage>
       </PageSnapContainer>
     </Layout>
   )
