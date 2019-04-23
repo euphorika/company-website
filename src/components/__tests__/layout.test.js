@@ -1,19 +1,18 @@
 import React from "react"
-import renderer from "react-test-renderer"
-import { StaticQuery } from "gatsby"
+import { shallow } from "enzyme"
+import toJson from 'enzyme-to-json'
+import { useStaticQuery } from "gatsby"
 
 import Layout from "../layout"
 
 beforeEach(() => {
-  StaticQuery.mockImplementationOnce(({ render }) =>
-    render({
-      site: {
-        siteMetadata: {
-          title: `Default Starter`,
-        },
-      },
-    })
-  )
+  useStaticQuery.mockReturnValueOnce({
+    site: {
+      siteMetadata: {
+        title: `Default Starter`
+      }
+    }
+  })
 })
 
 describe("Layout", () => {
@@ -24,9 +23,7 @@ describe("Layout", () => {
       </Layout>
     )
 
-    const tree = renderer
-      .create(LayoutElement)
-      .toJSON()
-    expect(tree).toMatchSnapshot()
+    const wrapper = shallow(LayoutElement)
+    expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

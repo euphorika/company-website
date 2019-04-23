@@ -1,109 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Layout renders correctly 1`] = `
-Array [
-  <header
-    className="siteHeader"
-  >
-    <div
-      className="logo"
-      onClick={[Function]}
-      role="button"
-      style={
-        Object {
-          "color": "",
-        }
-      }
-    >
-      Default Starter
-    </div>
-    <div
-      className="pageNavigation"
-    >
-      <nav>
-        <ul>
-          <li
-            className="entry"
-          >
-            <a
-              href="#"
-            >
-              Euphorika
-            </a>
-          </li>
-          <li
-            className="entry"
-          >
-            <a
-              href="#"
-            >
-              Leistungen
-            </a>
-          </li>
-          <li
-            className="entry"
-          >
-            <a
-              href="#"
-            >
-              Best Cases
-            </a>
-          </li>
-          <li
-            className="entry"
-          >
-            <a
-              href="#"
-            >
-              Jobs
-            </a>
-          </li>
-          <li
-            className="entry"
-          >
-            <a
-              href="#"
-            >
-              Kontakt
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div
-        className="closeNavigation"
-        onClick={[Function]}
-        role="button"
-      >
-        X
-      </div>
-    </div>
-  </header>,
-  <main
-    className="main"
-  >
+<Fragment>
+  <Header
+    siteTitle="Default Starter"
+  />
+  <main>
     <div>
       Children
     </div>
-  </main>,
-  <footer
-    className="pageFooter"
-  >
-    <ul>
-      <li>
-        <a
-          href="/legal-notice/"
-        >
-          Impressum
-        </a>
-      </li>
-      <li>
-        <a
-          href="/data-protection-and-privacy/"
-        >
-          Datenschutz
-        </a>
-      </li>
-    </ul>
-  </footer>,
-]
+  </main>
+  <Footer />
+</Fragment>
 `;

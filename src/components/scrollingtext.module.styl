@@ -1,0 +1,42 @@
+@require '../stylus/scrollingtext.config.styl'
+
+.scrolling-text-container
+  margin: 0;
+  height: 100%
+  padding: 25px
+  font-size: 14px
+
+  +above(scrollingtext.two-cols-breakpoint)
+    display: flex
+
+  .title
+    text-align: center
+    height: 15%
+    margin: 0
+
+    +above(scrollingtext.two-cols-breakpoint)
+      height: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+
+    h2
+      font-size: 50px
+
+      +above(scrollingtext.two-cols-breakpoint)
+        font-size: 70px
+
+  .body
+    height: 85%
+    overflow: auto
+
+    h3
+      font-size: 35px
+
+    +above(scrollingtext.two-cols-breakpoint)
+      height: auto
+
+  .title,
+  .body
+    +above(scrollingtext.two-cols-breakpoint)
+      width: 50%

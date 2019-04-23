@@ -3,30 +3,52 @@ import { useStaticQuery, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
 import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageSnapContainer from "../components/pagesnap"
+import PageSnapLayout from "../components/pagesnap-layout"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
+import ScrollingText from "../components/scrollingtext"
+import ScrollingTextBlock from "../components/scrollingtext-block"
 import Slider from "../components/slider"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMdx(sort: { fields: [frontmatter___order], order: ASC }) {
+      teaser: allFile(
+        filter: { sourceInstanceName: { eq: "home-fullpage" } }
+        sort: { order: ASC, fields: relativePath }
+      ) {
         edges {
           node {
-            id
-            frontmatter {
-              order
-              title
-              headerFontColor
-              backgroundColor
-              image
-              alt
+            relativePath
+            childMdx {
+              frontmatter {
+                title
+                headerFontColor
+                backgroundColor
+                image
+                alt
+              }
+              code {
+                body
+              }
             }
-            code {
-              body
+          }
+        }
+      }
+      text: allFile(
+        filter: { sourceInstanceName: { eq: "home-scrollingtext" } }
+        sort: { order: ASC, fields: relativePath }
+      ) {
+        edges {
+          node {
+            relativePath
+            childMdx {
+              frontmatter {
+                title
+              }
+              code {
+                body
+              }
             }
           }
         }
@@ -70,52 +92,69 @@ const IndexPage = () => {
   `)
 
   return (
-    <Layout>
-      <SEO title="Home" />
-      <PageSnapContainer>
-        {data.allMdx.edges.map((value, key) => (
-          <FullPage
-            key={key}
-            {...(!!value.node.frontmatter.headerFontColor
-              ? { headerFontColor: value.node.frontmatter.headerFontColor }
-              : {})}
-            {...(!!value.node.frontmatter.backgroundColor
-              ? { backgroundColor: value.node.frontmatter.backgroundColor }
-              : {})}
+    <PageSnapLayout title="Home">
+      {data.teaser.edges.map((value, key) => (
+        <FullPage
+          key={key}
+          {...(!!value.node.childMdx.frontmatter.headerFontColor
+            ? {
+                headerFontColor:
+                  value.node.childMdx.frontmatter.headerFontColor,
+              }
+            : {})}
+          {...(!!value.node.childMdx.frontmatter.backgroundColor
+            ? {
+                backgroundColor:
+                  value.node.childMdx.frontmatter.backgroundColor,
+              }
+            : {})}
+        >
+          <Image
+            fluid={
+              data[value.node.childMdx.frontmatter.image].childImageSharp.fluid
+            }
+            title={value.node.childMdx.frontmatter.title}
+            alt={value.node.childMdx.frontmatter.alt}
           >
-            <Image
-              fluid={data[value.node.frontmatter.image].childImageSharp.fluid}
-              title={value.node.frontmatter.title}
-              alt={value.node.frontmatter.alt}
-            >
-              <MDXRenderer>{value.node.code.body}</MDXRenderer>
-            </Image>
-          </FullPage>
-        ))}
-        <FullPage headerFontColor="inherit">
-          <Slider>
-            <div>
-              <Img
-                style={{ height: "100%" }}
-                fluid={data.example1.childImageSharp.fluid}
-              />
-            </div>
-            <div>
-              <Img
-                style={{ height: "100%" }}
-                fluid={data.example2.childImageSharp.fluid}
-              />
-            </div>
-            <div>
-              <Img
-                style={{ height: "100%" }}
-                fluid={data.example3.childImageSharp.fluid}
-              />
-            </div>
-          </Slider>
+            <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
+          </Image>
         </FullPage>
-      </PageSnapContainer>
-    </Layout>
+      ))}
+      <FullPage headerFontColor="inherit">
+        <Slider>
+          <div>
+            <Img
+              style={{ height: "100%" }}
+              fluid={data.example1.childImageSharp.fluid}
+            />
+          </div>
+          <div>
+            <Img
+              style={{ height: "100%" }}
+              fluid={data.example2.childImageSharp.fluid}
+            />
+          </div>
+          <div>
+            <Img
+              style={{ height: "100%" }}
+              fluid={data.example3.childImageSharp.fluid}
+            />
+          </div>
+        </Slider>
+      </FullPage>
+      <FullPage headerFontColor="#000" backgroundColor="#fff">
+        <ScrollingText title="Texseite">
+          {data.text.edges.map((value, key) => (
+            <ScrollingTextBlock
+              key={key}
+              title={value.node.childMdx.frontmatter.title}
+            >
+              <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
+            </ScrollingTextBlock>
+          ))}
+        </ScrollingText>
+      </FullPage>
+    </PageSnapLayout>
   )
 }
 

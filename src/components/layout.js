@@ -1,44 +1,30 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 import Footer from "./footer"
 import "./normalize.css"
-import styles from "./layout.module.styl"
+import "./layout.module.styl"
 
-class Layout extends React.Component {
-  render() {
-    const { children } = this.props
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
 
-    return (
-      <StaticQuery
-        query={graphql`
-          query SiteTitleQuery {
-            site {
-              siteMetadata {
-                title
-              }
-            }
-          }
-        `}
-        render={data => (
-          <>
-            <Header siteTitle={data.site.siteMetadata.title} />
-            <main className={styles.main}>{children}</main>
-            <Footer />
-          </>
-        )}
-      />
-    )
-  }
+  return (
+    <>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <main>{children}</main>
+      <Footer />
+    </>
+  )
 }
 
 Layout.propTypes = {
