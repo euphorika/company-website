@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageSnapLayout renders correctly 1`] = `
+<Fragment>
+  <SEO
+    description=""
+    keywords={Array []}
+    lang="en"
+    meta={Array []}
+    title="SEO Title"
+  />
+  <Header
+    siteTitle="Default Starter"
+  />
+  <PageSnapContainer>
+    <div>
+      Children
+    </div>
+    <FullPage
+      backgroundColor="#00b8d2"
+      headerFontColor="#ffffff"
+    >
+      <Footer />
+    </FullPage>
+  </PageSnapContainer>
+</Fragment>
+`;

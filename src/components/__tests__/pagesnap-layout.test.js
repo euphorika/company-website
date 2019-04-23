@@ -3,22 +3,27 @@ import { shallow } from "enzyme"
 import toJson from 'enzyme-to-json'
 import { useStaticQuery } from "gatsby"
 
-import Footer from "../footer"
+import PageSnapLayout from "../pagesnap-layout"
 
 beforeEach(() => {
   useStaticQuery.mockReturnValueOnce({
     site: {
       siteMetadata: {
-        email: 'me@example.com',
-        phone: '1234567-890'
+        title: `Default Starter`
       }
     }
   })
 })
 
-describe("Footer", () => {
+describe("PageSnapLayout", () => {
   it("renders correctly", () => {
-    const wrapper = shallow(<Footer />)
+    const PageSnapLayoutElement = (
+      <PageSnapLayout seoTitle="SEO Title">
+        <div>Children</div>
+      </PageSnapLayout>
+    )
+
+    const wrapper = shallow(PageSnapLayoutElement)
     expect(toJson(wrapper)).toMatchSnapshot()
   })
 })

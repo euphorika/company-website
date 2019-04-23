@@ -1,104 +1,160 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-mdx"
+import Img from "gatsby-image"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import PageSnapContainer from "../components/pagesnap"
+import PageSnapLayout from "../components/pagesnap-layout"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
-import Player from "../components/video"
+import ScrollingText from "../components/scrollingtext"
+import ScrollingTextBlock from "../components/scrollingtext-block"
+import Slider from "../components/slider"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
+      teaser: allFile(
+        filter: { sourceInstanceName: { eq: "home-fullpage" } }
+        sort: { order: ASC, fields: relativePath }
+      ) {
+        edges {
+          node {
+            relativePath
+            childMdx {
+              frontmatter {
+                title
+                headerFontColor
+                backgroundColor
+                image
+                alt
+              }
+              code {
+                body
+              }
+            }
+          }
+        }
+      }
+      text: allFile(
+        filter: { sourceInstanceName: { eq: "home-scrollingtext" } }
+        sort: { order: ASC, fields: relativePath }
+      ) {
+        edges {
+          node {
+            relativePath
+            childMdx {
+              frontmatter {
+                title
+              }
+              code {
+                body
+              }
+            }
+          }
+        }
+      }
       example1: file(relativePath: { eq: "euphorika-bg-1.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4928) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       example2: file(relativePath: { eq: "euphorika-bg-2.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4928) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       example3: file(relativePath: { eq: "euphorika-bg-3.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4928) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       example4: file(relativePath: { eq: "euphorika-bg-4.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4928) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
       example5: file(relativePath: { eq: "euphorika-bg-5.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 4928) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
     }
   `)
 
-  const fullPagesConfig = [
-    {
-      headerFontColor: "inherit",
-      backgroundColor: "",
-      backgroundImage: data.example1.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "green",
-      backgroundColor: "#fcc4c5",
-      backgroundImage: data.example2.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "red",
-      backgroundColor: "#d983c0",
-      backgroundImage: data.example3.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "blue",
-      backgroundColor: "#c9e8fc",
-      backgroundImage: data.example4.childImageSharp.fluid,
-    },
-    {
-      headerFontColor: "aqua",
-      backgroundColor: "#00b8d2",
-      backgroundImage: data.example5.childImageSharp.fluid,
-    },
-  ]
-
   return (
-    <Layout>
-      <SEO title="Home" />
-      <PageSnapContainer>
-        {fullPagesConfig.map((value, key) => (
-          <FullPage
-            key={key}
-            {...(!!value.headerFontColor
-              ? { headerFontColor: value.headerFontColor }
-              : {})}
-            {...(!!value.backgroundColor
-              ? { backgroundColor: value.backgroundColor }
-              : {})}
+    <PageSnapLayout title="Home">
+      {data.teaser.edges.map((value, key) => (
+        <FullPage
+          key={key}
+          {...(!!value.node.childMdx.frontmatter.headerFontColor
+            ? {
+                headerFontColor:
+                  value.node.childMdx.frontmatter.headerFontColor,
+              }
+            : {})}
+          {...(!!value.node.childMdx.frontmatter.backgroundColor
+            ? {
+                backgroundColor:
+                  value.node.childMdx.frontmatter.backgroundColor,
+              }
+            : {})}
+        >
+          <Image
+            fluid={
+              data[value.node.childMdx.frontmatter.image].childImageSharp.fluid
+            }
+            title={value.node.childMdx.frontmatter.title}
+            alt={value.node.childMdx.frontmatter.alt}
           >
-            <Image fluid={value.backgroundImage} />
-          </FullPage>
-        ))}
-        <FullPage>
-          <Player />
+            <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
+          </Image>
         </FullPage>
-      </PageSnapContainer>
-    </Layout>
+      ))}
+      <FullPage headerFontColor="inherit">
+        <Slider>
+          <div>
+            <Img
+              style={{ height: "100%" }}
+              fluid={data.example1.childImageSharp.fluid}
+            />
+          </div>
+          <div>
+            <Img
+              style={{ height: "100%" }}
+              fluid={data.example2.childImageSharp.fluid}
+            />
+          </div>
+          <div>
+            <Img
+              style={{ height: "100%" }}
+              fluid={data.example3.childImageSharp.fluid}
+            />
+          </div>
+        </Slider>
+      </FullPage>
+      <FullPage headerFontColor="#000" backgroundColor="#fff">
+        <ScrollingText title="Texseite">
+          {data.text.edges.map((value, key) => (
+            <ScrollingTextBlock
+              key={key}
+              title={value.node.childMdx.frontmatter.title}
+            >
+              <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
+            </ScrollingTextBlock>
+          ))}
+        </ScrollingText>
+      </FullPage>
+    </PageSnapLayout>
   )
 }
 

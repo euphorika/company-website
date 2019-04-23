@@ -4,20 +4,42 @@ exports[`Footer renders correctly 1`] = `
 <footer
   className="pageFooter"
 >
-  <ul>
+  <div
+    className="contactInformation"
+  >
+    <ul>
+      <li>
+        <strong>
+          1234567-890
+        </strong>
+      </li>
+      <li>
+        <strong>
+          <a
+            href="mailto:me@example.com"
+          >
+            me@example.com
+          </a>
+        </strong>
+      </li>
+    </ul>
+  </div>
+  <ul
+    className="legalAdvice"
+  >
     <li>
-      <a
-        href="/impressum/"
+      <mockConstructor
+        to="/legal-notice/"
       >
         Impressum
-      </a>
+      </mockConstructor>
     </li>
     <li>
-      <a
-        href="/datenschutz/"
+      <mockConstructor
+        to="/data-protection-and-privacy/"
       >
         Datenschutz
-      </a>
+      </mockConstructor>
     </li>
   </ul>
 </footer>

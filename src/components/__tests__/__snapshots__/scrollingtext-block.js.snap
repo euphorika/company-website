@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollingTextBlock renders correctly 1`] = `
+<div
+  className="scrollingTextBlockContainer"
+>
+  <h3
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Awesome Headline",
+      }
+    }
+  />
+  Awesome Content
+</div>
+`;
