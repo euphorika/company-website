@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import PageSnapContainer from "../components/pagesnap"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
+import Player from "../comoponents/video"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -93,6 +94,9 @@ const IndexPage = () => {
             <Image fluid={value.backgroundImage} />
           </FullPage>
         ))}
+        <FullPage>
+          <Player />
+        </FullPage>
       </PageSnapContainer>
     </Layout>
   )
