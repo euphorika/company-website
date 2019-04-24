@@ -10,7 +10,7 @@ exports[`Navigation renders correctly 1`] = `
         className="entry"
       >
         <a
-          href="#"
+          href="/"
         >
           Euphorika
         </a>
@@ -19,7 +19,7 @@ exports[`Navigation renders correctly 1`] = `
         className="entry"
       >
         <a
-          href="#"
+          href="/service/"
         >
           Leistungen
         </a>
@@ -28,7 +28,7 @@ exports[`Navigation renders correctly 1`] = `
         className="entry"
       >
         <a
-          href="#"
+          href="/best-cases/"
         >
           Best Cases
         </a>
@@ -37,7 +37,7 @@ exports[`Navigation renders correctly 1`] = `
         className="entry"
       >
         <a
-          href="#"
+          href="/jobs/"
         >
           Jobs
         </a>
@@ -46,7 +46,7 @@ exports[`Navigation renders correctly 1`] = `
         className="entry"
       >
         <a
-          href="#"
+          href="/contact/"
         >
           Kontakt
         </a>

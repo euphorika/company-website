@@ -31,19 +31,19 @@ const Navigation = ({ fontColor }) => (
           <nav>
             <ul>
               <li className={styles.entry}>
-                <Link to="#">Euphorika</Link>
+                <Link to="/">Euphorika</Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Leistungen</Link>
+                <Link to="/service/">Leistungen</Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Best Cases</Link>
+                <Link to="/best-cases/">Best Cases</Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Jobs</Link>
+                <Link to="/jobs/">Jobs</Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Kontakt</Link>
+                <Link to="/contact/">Kontakt</Link>
               </li>
             </ul>
           </nav>
