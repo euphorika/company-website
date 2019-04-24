@@ -12,7 +12,7 @@
   bottom: 0
   left: 0
   overflow-x: hidden
-  z-index: 100
+  z-index: 200
   transition: width .5s
 
   &.visible-on-mobile
@@ -23,19 +23,30 @@
 
   +above('m')
     width: auto
-    top: 10px
-    left: 10px
+    top: header.padding
+    left: header.padding
     right: auto
     bottom: auto
     background: none
 
-  .entry
-    text-transform: lowercase
+  ul
+    padding-left: 55px
 
-    a
-      text-decoration: none
-      color: #000
-      transition: color header.transition-duration
+    +above('m')
+      padding-left: 0
+
+    .entry
+      text-transform: lowercase
+      font-size: 14px
+      font-weight: bold
+
+      +above('m')
+        font-size: 12px
+
+      a
+        text-decoration: none
+        color: #000
+        transition: color header.transition-duration
 
   .close-navigation
     position: absolute

@@ -18,7 +18,7 @@ const Navigation = ({ fontColor }) => (
         <div className={`${styles.pageNavigation}${toggleVisibilityClass}`}>
           <Helmet>
             <style type="text/css">{`
-              .${styles.pageNavigation} .${styles.entry} a,
+              .${styles.pageNavigation} ul .${styles.entry} a,
               .${styles.closeNavigation} {
                 color: ${fontColor}
               }
