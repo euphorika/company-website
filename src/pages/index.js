@@ -9,6 +9,7 @@ import Image from "../components/image"
 import ScrollingText from "../components/scrollingtext"
 import ScrollingTextBlock from "../components/scrollingtext-block"
 import Slider from "../components/slider"
+import Player from "../components/video"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -153,6 +154,9 @@ const IndexPage = () => {
             </ScrollingTextBlock>
           ))}
         </ScrollingText>
+      </FullPage>
+      <FullPage headerFontColor="#fff" backgroundColor="#000">
+        <Player />
       </FullPage>
     </PageSnapLayout>
   )
