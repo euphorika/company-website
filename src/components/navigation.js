@@ -13,11 +13,15 @@ const Navigation = ({ fontColor }) => (
       const toggleVisibilityClass = theme.navigationVisibleOnMobile
         ? ` ${styles.visibleOnMobile}`
         : ""
+      const backgroundColor = theme.tileBackgroundColor
 
       return (
         <div className={`${styles.pageNavigation}${toggleVisibilityClass}`}>
           <Helmet>
             <style type="text/css">{`
+              .${styles.pageNavigation} {
+                background-color: ${backgroundColor}
+              }
               .${styles.pageNavigation} ul .${styles.entry} a,
               .${styles.closeNavigation} {
                 color: ${fontColor}

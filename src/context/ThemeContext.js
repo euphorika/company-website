@@ -3,8 +3,10 @@ import React from "react"
 const defaultState = {
   navigationVisibleOnMobile: false,
   headerFontColor: "",
+  tileBackgroundColor: "",
   toggleMobileNavigation: () => {},
   setHeaderFontColor: () => {},
+  setTileBackgroundColor: () => {},
 }
 
 const ThemeContext = React.createContext(defaultState)
@@ -13,6 +15,7 @@ class ThemeProvider extends React.Component {
   state = {
     navigationVisibleOnMobile: false,
     headerFontColor: "",
+    tileBackgroundColor: "#fff",
   }
 
   toggleMobileNavigation = () => {
@@ -21,23 +24,35 @@ class ThemeProvider extends React.Component {
     })
   }
 
-  setHeaderFontColor = fontColor => {
+  setHeaderFontColor = color => {
     this.setState({
-      headerFontColor: fontColor,
+      headerFontColor: color,
+    })
+  }
+
+  setTileBackgroundColor = color => {
+    this.setState({
+      tileBackgroundColor: color,
     })
   }
 
   render() {
     const { children } = this.props
-    const { navigationVisibleOnMobile, headerFontColor } = this.state
+    const {
+      navigationVisibleOnMobile,
+      headerFontColor,
+      tileBackgroundColor,
+    } = this.state
 
     return (
       <ThemeContext.Provider
         value={{
           navigationVisibleOnMobile,
           headerFontColor,
+          tileBackgroundColor,
           toggleMobileNavigation: this.toggleMobileNavigation,
           setHeaderFontColor: this.setHeaderFontColor,
+          setTileBackgroundColor: this.setTileBackgroundColor,
         }}
       >
         {children}

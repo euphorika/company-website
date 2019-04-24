@@ -120,7 +120,7 @@ const IndexPage = () => {
           </Image>
         </FullPage>
       ))}
-      <FullPage headerFontColor="inherit">
+      <FullPage headerFontColor="inherit" backgroundColor="#fff">
         <Slider>
           <div>
             <Img

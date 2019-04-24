@@ -30,9 +30,14 @@ class PageSnapContainer extends React.Component {
         this.snapContainer.current.scrollTop / this.state.containerHeight
       )
       const fontColor = this.state.children[index].props.headerFontColor
+      const backgroundColor = this.state.children[index].props.backgroundColor
 
       if (fontColor) {
         this.context.setHeaderFontColor(fontColor)
+      }
+
+      if (backgroundColor) {
+        this.context.setTileBackgroundColor(backgroundColor)
       }
     }
     const element = this.snapContainer.current
