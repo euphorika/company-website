@@ -85,7 +85,15 @@ exports[`Header renders correctly 1`] = `
       onClick={[Function]}
       role="button"
     >
-      X
+      <svg
+        viewBox="0 0 172.26 174.13"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M172.26 28.71L143.55 0 86.13 57.42 28.71 0 0 28.71l57.42 57.42L0 143.54l28.71 28.72 57.42-57.42 57.42 57.42 28.7-28.72-57.41-57.41z"
+          fill=""
+        />
+      </svg>
     </div>
   </div>
 </header>

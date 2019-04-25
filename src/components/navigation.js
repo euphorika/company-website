@@ -5,6 +5,8 @@ import Helmet from "react-helmet"
 
 import ThemeContext from "../context/ThemeContext"
 
+import ClosingX from "./closing-x"
+
 import styles from "./navigation.module.styl"
 
 const Navigation = ({ fontColor }) => (
@@ -52,7 +54,7 @@ const Navigation = ({ fontColor }) => (
             onClick={theme.toggleMobileNavigation}
             role="button"
           >
-            X
+            <ClosingX color={fontColor} />
           </div>
         </div>
       )
