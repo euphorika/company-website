@@ -8,7 +8,6 @@ import FullPage from "../components/fullpage"
 import Image from "../components/image"
 import ScrollingText from "../components/scrollingtext"
 import ScrollingTextBlock from "../components/scrollingtext-block"
-import Slider from "../components/slider"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -120,28 +119,6 @@ const IndexPage = () => {
           </Image>
         </FullPage>
       ))}
-      <FullPage headerFontColor="inherit" backgroundColor="#fff">
-        <Slider>
-          <div>
-            <Img
-              style={{ height: "100%" }}
-              fluid={data.example1.childImageSharp.fluid}
-            />
-          </div>
-          <div>
-            <Img
-              style={{ height: "100%" }}
-              fluid={data.example2.childImageSharp.fluid}
-            />
-          </div>
-          <div>
-            <Img
-              style={{ height: "100%" }}
-              fluid={data.example3.childImageSharp.fluid}
-            />
-          </div>
-        </Slider>
-      </FullPage>
       <FullPage headerFontColor="#000" backgroundColor="#fff">
         <ScrollingText title="Texseite">
           {data.text.edges.map((value, key) => (
