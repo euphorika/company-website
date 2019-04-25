@@ -3,8 +3,13 @@
 .site-header
   .logo
     position: fixed
+    width: 20%
+    max-width: header.navigation-max-width
     z-index: 100
-    right: 10px
-    top: 10px
-    font-size: 12px
+    right: header.padding-mobile
+    top: header.padding-mobile
     transition: color header.transition-duration
+
+    +above('m')
+      right: header.padding
+      top: header.padding

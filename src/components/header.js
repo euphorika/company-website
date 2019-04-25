@@ -3,6 +3,7 @@ import React from "react"
 
 import ThemeContext from "../context/ThemeContext"
 import Navigation from "./navigation"
+import Logo from "./logo"
 
 import styles from "./header.module.styl"
 
@@ -16,7 +17,7 @@ const Header = ({ siteTitle }) => (
           role="button"
           style={{ color: theme.headerFontColor }}
         >
-          {siteTitle}
+          <Logo title={siteTitle} color={theme.headerFontColor} />
         </div>
         <Navigation fontColor={theme.headerFontColor} />
       </header>

@@ -5,6 +5,8 @@ import Helmet from "react-helmet"
 
 import ThemeContext from "../context/ThemeContext"
 
+import ClosingX from "./closing-x"
+
 import styles from "./navigation.module.styl"
 
 const Navigation = ({ fontColor }) => (
@@ -13,12 +15,16 @@ const Navigation = ({ fontColor }) => (
       const toggleVisibilityClass = theme.navigationVisibleOnMobile
         ? ` ${styles.visibleOnMobile}`
         : ""
+      const backgroundColor = theme.tileBackgroundColor
 
       return (
         <div className={`${styles.pageNavigation}${toggleVisibilityClass}`}>
           <Helmet>
             <style type="text/css">{`
-              .${styles.pageNavigation} .${styles.entry} a,
+              .${styles.pageNavigation} {
+                background-color: ${backgroundColor}
+              }
+              .${styles.pageNavigation} ul .${styles.entry} a,
               .${styles.closeNavigation} {
                 color: ${fontColor}
               }
@@ -27,19 +33,29 @@ const Navigation = ({ fontColor }) => (
           <nav>
             <ul>
               <li className={styles.entry}>
-                <Link to="#">Euphorika</Link>
+                <Link onClick={theme.resetThemeState} to="/">
+                  Euphorika
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Leistungen</Link>
+                <Link onClick={theme.resetThemeState} to="/service/">
+                  Leistungen
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Best Cases</Link>
+                <Link onClick={theme.resetThemeState} to="/best-cases/">
+                  Best Cases
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Jobs</Link>
+                <Link onClick={theme.resetThemeState} to="/jobs/">
+                  Jobs
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="#">Kontakt</Link>
+                <Link onClick={theme.resetThemeState} to="/contact/">
+                  Kontakt
+                </Link>
               </li>
             </ul>
           </nav>
@@ -48,7 +64,7 @@ const Navigation = ({ fontColor }) => (
             onClick={theme.toggleMobileNavigation}
             role="button"
           >
-            X
+            <ClosingX color={fontColor} />
           </div>
         </div>
       )
