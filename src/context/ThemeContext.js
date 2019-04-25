@@ -7,6 +7,7 @@ const defaultState = {
   toggleMobileNavigation: () => {},
   setHeaderFontColor: () => {},
   setTileBackgroundColor: () => {},
+  resetThemeState: () => {},
 }
 
 const ThemeContext = React.createContext(defaultState)
@@ -16,6 +17,14 @@ class ThemeProvider extends React.Component {
     navigationVisibleOnMobile: false,
     headerFontColor: "",
     tileBackgroundColor: "#fff",
+  }
+
+  resetThemeState = () => {
+    this.setState({
+      navigationVisibleOnMobile: false,
+      headerFontColor: "",
+      tileBackgroundColor: "#fff",
+    })
   }
 
   toggleMobileNavigation = () => {
@@ -53,6 +62,7 @@ class ThemeProvider extends React.Component {
           toggleMobileNavigation: this.toggleMobileNavigation,
           setHeaderFontColor: this.setHeaderFontColor,
           setTileBackgroundColor: this.setTileBackgroundColor,
+          resetThemeState: this.resetThemeState,
         }}
       >
         {children}
