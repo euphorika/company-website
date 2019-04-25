@@ -38,6 +38,7 @@ exports[`Header renders correctly 1`] = `
         >
           <a
             href="/"
+            onClick={[Function]}
           >
             Euphorika
           </a>
@@ -47,6 +48,7 @@ exports[`Header renders correctly 1`] = `
         >
           <a
             href="/service/"
+            onClick={[Function]}
           >
             Leistungen
           </a>
@@ -56,6 +58,7 @@ exports[`Header renders correctly 1`] = `
         >
           <a
             href="/best-cases/"
+            onClick={[Function]}
           >
             Best Cases
           </a>
@@ -65,6 +68,7 @@ exports[`Header renders correctly 1`] = `
         >
           <a
             href="/jobs/"
+            onClick={[Function]}
           >
             Jobs
           </a>
@@ -74,6 +78,7 @@ exports[`Header renders correctly 1`] = `
         >
           <a
             href="/contact/"
+            onClick={[Function]}
           >
             Kontakt
           </a>

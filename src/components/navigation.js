@@ -33,19 +33,29 @@ const Navigation = ({ fontColor }) => (
           <nav>
             <ul>
               <li className={styles.entry}>
-                <Link to="/">Euphorika</Link>
+                <Link onClick={theme.toggleMobileNavigation} to="/">
+                  Euphorika
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="/service/">Leistungen</Link>
+                <Link onClick={theme.toggleMobileNavigation} to="/service/">
+                  Leistungen
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="/best-cases/">Best Cases</Link>
+                <Link onClick={theme.toggleMobileNavigation} to="/best-cases/">
+                  Best Cases
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="/jobs/">Jobs</Link>
+                <Link onClick={theme.toggleMobileNavigation} to="/jobs/">
+                  Jobs
+                </Link>
               </li>
               <li className={styles.entry}>
-                <Link to="/contact/">Kontakt</Link>
+                <Link onClick={theme.toggleMobileNavigation} to="/contact/">
+                  Kontakt
+                </Link>
               </li>
             </ul>
           </nav>
