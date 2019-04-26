@@ -1,11 +1,11 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-mdx"
-import Img from "gatsby-image"
 
 import PageSnapLayout from "../components/pagesnap-layout"
 import FullPage from "../components/fullpage"
 import Image from "../components/image"
+import Video from "../components/video"
 import ScrollingText from "../components/scrollingtext"
 import ScrollingTextBlock from "../components/scrollingtext-block"
 
@@ -91,7 +91,7 @@ const IndexPage = () => {
   `)
 
   return (
-    <PageSnapLayout title="Home">
+    <PageSnapLayout seoTitle="Home">
       {data.teaser.edges.map((value, key) => (
         <FullPage
           key={key}
@@ -119,6 +119,9 @@ const IndexPage = () => {
           </Image>
         </FullPage>
       ))}
+      <FullPage headerFontColor="#fff" backgroundColor="#000">
+        <Video video="/videos/diver.mp4" poster="/videos/diver.jpg" />
+      </FullPage>
       <FullPage headerFontColor="#000" backgroundColor="#fff">
         <ScrollingText title="Texseite">
           {data.text.edges.map((value, key) => (
