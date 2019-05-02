@@ -51,7 +51,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
-    "predeploy": "yarn test; CI=1 npm i cypress; yarn test:e2e:ci",
+    "predeploy": "yarn test",
     "deploy": "yarn build",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
