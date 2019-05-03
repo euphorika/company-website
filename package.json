@@ -29,13 +29,15 @@
   "devDependencies": {
     "babel-jest": "^24.5.0",
     "babel-preset-gatsby": "^0.1.10",
+    "cypress": "^3.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.5.0",
     "prettier": "^1.16.4",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "start-server-and-test": "^1.9.0"
   },
   "keywords": [
     "euphorika",
@@ -45,12 +47,16 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier --write src/**/*.{js,jsx} cypress/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest",
     "predeploy": "yarn test",
-    "deploy": "yarn build"
+    "deploy": "yarn build",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "repository": {
     "type": "git",
