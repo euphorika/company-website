@@ -23,8 +23,7 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-helmet": "^5.2.0",
-    "rupture": "^0.7.1",
-    "scroll-snap": "^1.0.6"
+    "rupture": "^0.7.1"
   },
   "devDependencies": {
     "babel-jest": "^24.5.0",
