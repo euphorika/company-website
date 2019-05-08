@@ -42,14 +42,9 @@ class PageSnapContainer extends React.Component {
               }
             }
 
-            this.setState(
-              {
-                index: this.state.index + indexJump,
-              },
-              () => {
-                this.snapContainer.children[this.state.index].scrollIntoView()
-              }
-            )
+            this.setState({
+              index: this.state.index + indexJump,
+            })
             //this.snapContainer.scrollTo(0, this.state.childrenOffset[this.state.index])
             //console.log(this.state.childrenOffset[this.state.index])
             //console.log(ReactDOM.findDOMNode(this.state.children[1]))
@@ -103,6 +98,10 @@ class PageSnapContainer extends React.Component {
 
   render() {
     const { children } = this.props
+
+    if (this.snapContainer && !this.context.supportsScrollSnap) {
+      this.snapContainer.children[this.state.index].scrollIntoView()
+    }
 
     return (
       <div ref={this.setSnapContainerRef} className={styles.pageSnapContainer}>
