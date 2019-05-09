@@ -9,6 +9,11 @@ class PageSnapContainer extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      index: 0,
+      lastScrollY: 0,
+    }
+
     this.snapContainer = null
 
     this.setSnapContainerRef = element => {
@@ -26,6 +31,8 @@ class PageSnapContainer extends React.Component {
       this.snapContainer.addEventListener("scroll", e => {
         if (!this.state.snapMode) {
           console.log("Just one time")
+          this.startSnapMode()
+
           if (!this.context.supportsScrollSnap) {
             const currentScrollPositionY = e.target.scrollTop
             let indexJump = 0
@@ -44,28 +51,21 @@ class PageSnapContainer extends React.Component {
 
             this.setState({
               index: this.state.index + indexJump,
-            })
-            //this.snapContainer.scrollTo(0, this.state.childrenOffset[this.state.index])
-            //console.log(this.state.childrenOffset[this.state.index])
-            //console.log(ReactDOM.findDOMNode(this.state.children[1]))
-            // Scrollrichtung bestimmen
-            // Edgecase prüfen
-            // Child DomNode finden
-            // Offset bestimmen scrollTo offset
-            this.setState({
               lastScrollY:
                 currentScrollPositionY < 0 ? 0 : currentScrollPositionY,
             })
           }
         }
-        this.startSnapMode()
-      })
-    }
 
-    this.state = {
-      index: 0,
-      lastScrollY: 0,
-      children: React.Children.toArray(this.props.children),
+        /*const ScrollingObserver = new IntersectionObserver((entry, observer) => {
+          console.log(entry)
+          // console.log(observer)
+        })*/
+
+        /*for(let i=0; i<this.snapContainer.children.length; i++) {
+          ScrollingObserver.observe(this.snapContainer.children[i])
+        }*/
+      })
     }
 
     /*
@@ -100,6 +100,8 @@ class PageSnapContainer extends React.Component {
     const { children } = this.props
 
     if (this.snapContainer && !this.context.supportsScrollSnap) {
+      console.log('Scroll Into View with Index: ' + this.state.index)
+      console.log('Scroll into View with Element: ' + this.snapContainer.children[this.state.index])
       this.snapContainer.children[this.state.index].scrollIntoView()
     }
 
