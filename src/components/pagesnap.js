@@ -9,104 +9,53 @@ class PageSnapContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      index: 0,
-      lastScrollY: 0,
-    }
+    this.scrolling = false
+    this.snapContainer = React.createRef()
+  }
 
-    this.snapContainer = null
+  componentDidMount() {
+    const ScrollingObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (
+            !this.context.supportsScrollSnap &&
+            !this.scrolling &&
+            entry.intersectionRatio >= 0.1 &&
+            entry.intersectionRatio < 0.2
+          ) {
+            this.scrolling = true
+            entry.target.scrollIntoView()
+          }
 
-    this.setSnapContainerRef = element => {
-      if (!element) {
-        // https://reactjs.org/docs/refs-and-the-dom.html#caveats-with-callback-refs
-        return
-      }
+          if (entry.intersectionRatio === 1) {
+            const fontColor = entry.target.dataset.color
+            const backgroundColor = entry.target.dataset.backgroundColor
 
-      this.snapContainer = element
-
-      this.setState({
-        lastScrollY: this.snapContainer.offsetTop,
-      })
-
-      this.snapContainer.addEventListener("scroll", e => {
-        if (!this.state.snapMode) {
-          console.log("Just one time")
-          this.startSnapMode()
-
-          if (!this.context.supportsScrollSnap) {
-            const currentScrollPositionY = e.target.scrollTop
-            let indexJump = 0
-
-            if (currentScrollPositionY > this.state.lastScrollY) {
-              console.log("scrolldown")
-              if (this.state.index < this.snapContainer.children.length - 1) {
-                indexJump = 1
-              }
-            } else {
-              console.log("scrollup")
-              if (this.state.index > 0) {
-                indexJump = -1
-              }
+            if (fontColor) {
+              this.context.setHeaderFontColor(fontColor)
             }
 
-            this.setState({
-              index: this.state.index + indexJump,
-              lastScrollY:
-                currentScrollPositionY < 0 ? 0 : currentScrollPositionY,
-            })
+            if (backgroundColor) {
+              this.context.setTileBackgroundColor(backgroundColor)
+            }
+
+            this.scrolling = false
           }
-        }
+        })
+      },
+      { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] }
+    )
 
-        /*const ScrollingObserver = new IntersectionObserver((entry, observer) => {
-          console.log(entry)
-          // console.log(observer)
-        })*/
-
-        /*for(let i=0; i<this.snapContainer.children.length; i++) {
-          ScrollingObserver.observe(this.snapContainer.children[i])
-        }*/
-      })
+    for (let i = 0; i < this.snapContainer.current.children.length; i++) {
+      ScrollingObserver.observe(this.snapContainer.current.children[i])
     }
-
-    /*
-
-    const fontColor = this.state.children[index].props.headerFontColor
-    const backgroundColor = this.state.children[index].props.backgroundColor
-
-    if (fontColor) {
-      this.context.setHeaderFontColor(fontColor)
-    }
-
-    if (backgroundColor) {
-      this.context.setTileBackgroundColor(backgroundColor)
-    }
-
-    */
-  }
-
-  startSnapMode = () => {
-    this.setState({
-      snapMode: true,
-    })
-  }
-
-  stopSnapMode = () => {
-    this.setState({
-      snapMode: false,
-    })
   }
 
   render() {
     const { children } = this.props
 
-    if (this.snapContainer && !this.context.supportsScrollSnap) {
-      console.log('Scroll Into View with Index: ' + this.state.index)
-      console.log('Scroll into View with Element: ' + this.snapContainer.children[this.state.index])
-      this.snapContainer.children[this.state.index].scrollIntoView()
-    }
-
     return (
-      <div ref={this.setSnapContainerRef} className={styles.pageSnapContainer}>
+      <div ref={this.snapContainer} className={styles.pageSnapContainer}>
         {children}
       </div>
     )
