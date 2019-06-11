@@ -18,6 +18,7 @@ class ThemeProvider extends React.Component {
     navigationVisibleOnMobile: false,
     headerFontColor: "",
     tileBackgroundColor: "#fff",
+    supportsScrollSnap: false,
   }
 
   resetThemeState = () => {
