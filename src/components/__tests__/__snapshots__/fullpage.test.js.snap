@@ -3,6 +3,8 @@
 exports[`FullPage renders correctly 1`] = `
 <div
   className="fullPage"
+  data-background-color="#fff"
+  data-color="000"
   style={
     Object {
       "backgroundColor": "#fff",

@@ -6,7 +6,7 @@ import FullPage from "../fullpage"
 describe("FullPage", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<FullPage backgroundColor="#fff">Page</FullPage>)
+      .create(<FullPage headerFontColor="000" backgroundColor="#fff">Page</FullPage>)
       .toJSON()
     expect(tree).toMatchSnapshot()
   })

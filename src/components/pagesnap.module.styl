@@ -1,2 +1,10 @@
 .page-snap-container
   height: 100vh
+  overflow: auto
+  scroll-snap-type: y mandatory
+  scroll-behavior: smooth
+  -webkit-overflow-scrolling: touch
+
+  & > *
+    scroll-snap-align: start
+    scroll-snap-stop: always

@@ -4,6 +4,7 @@ const defaultState = {
   navigationVisibleOnMobile: false,
   headerFontColor: "",
   tileBackgroundColor: "",
+  supportsScrollSnap: false,
   toggleMobileNavigation: () => {},
   setHeaderFontColor: () => {},
   setTileBackgroundColor: () => {},
@@ -17,6 +18,7 @@ class ThemeProvider extends React.Component {
     navigationVisibleOnMobile: false,
     headerFontColor: "",
     tileBackgroundColor: "#fff",
+    supportsScrollSnap: false,
   }
 
   resetThemeState = () => {
@@ -45,12 +47,24 @@ class ThemeProvider extends React.Component {
     })
   }
 
+  setSupportsScrollSnap = () => {
+    this.setState({
+      supportsScrollSnap:
+        CSS && CSS.supports && CSS.supports("scroll-snap-type", "y mandatory"),
+    })
+  }
+
+  componentDidMount() {
+    this.setSupportsScrollSnap()
+  }
+
   render() {
     const { children } = this.props
     const {
       navigationVisibleOnMobile,
       headerFontColor,
       tileBackgroundColor,
+      supportsScrollSnap,
     } = this.state
 
     return (
@@ -59,6 +73,7 @@ class ThemeProvider extends React.Component {
           navigationVisibleOnMobile,
           headerFontColor,
           tileBackgroundColor,
+          supportsScrollSnap,
           toggleMobileNavigation: this.toggleMobileNavigation,
           setHeaderFontColor: this.setHeaderFontColor,
           setTileBackgroundColor: this.setTileBackgroundColor,
