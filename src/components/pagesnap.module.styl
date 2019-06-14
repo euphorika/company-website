@@ -1,8 +1,13 @@
 .page-snap-container
   height: 100vh
   overflow: auto
-  scroll-snap-type: y mandatory
   scroll-behavior: smooth
+  -ms-scroll-snap-points-x: snapInterval(0px, 100%)
+  -ms-scroll-snap-type: mandatory
+  scroll-snap-type: mandatory
+  scroll-snap-type: y mandatory
+  scroll-snap-points-y: repeat(100%)
+  scroll-snap-destination: 100% 0%
   -webkit-overflow-scrolling: touch
 
   & > *
