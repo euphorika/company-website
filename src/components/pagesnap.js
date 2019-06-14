@@ -9,8 +9,6 @@ class PageSnapContainer extends React.Component {
   constructor(props) {
     super(props)
 
-    this.scrollDirection = null
-    this.activePageIndex = 0
     this.snapContainer = React.createRef()
   }
 
@@ -29,8 +27,6 @@ class PageSnapContainer extends React.Component {
             if (backgroundColor) {
               this.context.setTileBackgroundColor(backgroundColor)
             }
-
-            this.registerScrollEventListener()
           }
         })
       },
@@ -40,77 +36,6 @@ class PageSnapContainer extends React.Component {
     for (let i = 0; i < this.snapContainer.current.children.length; i++) {
       ScrollingObserver.observe(this.snapContainer.current.children[i])
     }
-
-    document.addEventListener("keydown", e => {
-      if (e.key === "ArrowDown") {
-        this.unRegisterScrollEventListener()
-        this.scrollToNextPage()
-      }
-
-      if (e.key === "ArrowUp") {
-        this.unRegisterScrollEventListener()
-        this.scrollToPreviousPage()
-      }
-    })
-
-    if (
-      window.CSS &&
-      window.CSS.supports &&
-      !window.CSS.supports("scroll-snap-type", "y mandatory")
-    ) {
-      window.addEventListener("wheel", e => {
-        if (e.deltaY > 0) {
-          this.scrollDirection = "down"
-        }
-
-        if (e.deltaY < 0) {
-          this.scrollDirection = "up"
-        }
-      })
-    }
-  }
-
-  registerScrollEventListener() {
-    if (
-      CSS &&
-      CSS.supports &&
-      !CSS.supports("scroll-snap-type", "y mandatory")
-    ) {
-      this.snapContainer.current.addEventListener("scroll", this.paging)
-    }
-  }
-
-  unRegisterScrollEventListener() {
-    this.snapContainer.current.removeEventListener("scroll", this.paging)
-  }
-
-  scrollToNextPage() {
-    const nextPageIndex =
-      this.activePageIndex < this.snapContainer.current.children.length - 1
-        ? ++this.activePageIndex
-        : this.activePageIndex
-
-    this.snapContainer.current.children[nextPageIndex].scrollIntoView()
-  }
-
-  scrollToPreviousPage() {
-    const previousPageIndex =
-      this.activePageIndex > 0 ? --this.activePageIndex : this.activePageIndex
-
-    this.snapContainer.current.children[previousPageIndex].scrollIntoView()
-  }
-
-  paging = () => {
-    this.unRegisterScrollEventListener()
-
-    setTimeout(() => {
-      if (this.scrollDirection === "down") {
-        this.scrollToNextPage()
-      }
-      if (this.scrollDirection === "up") {
-        this.scrollToPreviousPage()
-      }
-    }, 100) // I don't know why?
   }
 
   render() {
