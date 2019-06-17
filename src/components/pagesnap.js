@@ -16,7 +16,7 @@ class PageSnapContainer extends React.Component {
     const ScrollingObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.intersectionRatio === 1) {
+          if (entry.intersectionRatio > 0.9) {
             const fontColor = entry.target.dataset.color
             const backgroundColor = entry.target.dataset.backgroundColor
 
