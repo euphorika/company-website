@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextBlock renders correctly 1`] = `
+<section
+  className="textBlockContainer"
+>
+  <h1
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Awesome Headline",
+      }
+    }
+  />
+  <div
+    className="body"
+  >
+    Awesome Content
+  </div>
+</section>
+`;
