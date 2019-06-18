@@ -1,4 +1,4 @@
-@require '../stylus/scrollingtext.config.styl'
+@require '../stylus/text.config.styl'
 @require '../stylus/header.config.styl'
 
 .scrolling-text-container
@@ -8,7 +8,7 @@
   padding: 25px
   font-size: 14px
 
-  +above(scrollingtext.two-cols-breakpoint)
+  +above(text.two-cols-breakpoint)
     padding: 70px 0
 
   .title
@@ -16,7 +16,7 @@
     height: 15%
     margin: 0
 
-    +above(scrollingtext.two-cols-breakpoint)
+    +above(text.two-cols-breakpoint)
       position: absolute
       top: 0
       left: 0
@@ -29,7 +29,7 @@
     h2
       font-size: 50px
 
-      +above(scrollingtext.two-cols-breakpoint)
+      +above(text.two-cols-breakpoint)
         font-size: 80px
         margin-top: -20%
 
@@ -43,7 +43,7 @@
       display: none
     }
 
-    +above(scrollingtext.two-cols-breakpoint)
+    +above(text.two-cols-breakpoint)
       position: relative
       z-index: 10
       height: 100%

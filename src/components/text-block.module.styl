@@ -1,0 +1,31 @@
+@require '../stylus/text.config.styl'
+@require '../stylus/header.config.styl'
+
+.text-block-container
+  padding: 25px
+  padding-top: 115px
+
+  +above(text.two-cols-breakpoint)
+    display: flex
+    padding: 0
+    padding-top: 200px
+    margin: auto
+    max-width: 'calc(100% - (%s + %s) * 2)' % (header.padding header.navigation-max-width)
+
+  h1, .body
+    flex: 1
+
+  h1
+    font-size: 50px
+    hyphens: auto
+
+    +above(text.two-cols-breakpoint)
+      font-size: 80px
+      padding-top: 30px
+
+  .body
+    h2
+      font-family: 'Montserrat', sans-serif
+      font-weight: bold
+      font-size: 25px
+      margin-bottom: 15px
