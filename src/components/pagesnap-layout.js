@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import SEO from "./seo"
 
 import Header from "./header"
-import Footer from "./footer"
+import FullpageFooter from "./fullpage-footer"
 import PageSnapContainer from "./pagesnap"
 import FullPage from "./fullpage"
 
@@ -30,7 +30,7 @@ const PageSnapLayout = ({ children, seoTitle }) => {
       <PageSnapContainer>
         {children}
         <FullPage headerFontColor="#ffffff" backgroundColor="#00b8d2">
-          <Footer />
+          <FullpageFooter />
         </FullPage>
       </PageSnapContainer>
     </>
