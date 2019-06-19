@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FullpageFooter renders correctly 1`] = `
+<div
+  className="fullpageFooter"
+>
+  <Footer />
+</div>
+`;

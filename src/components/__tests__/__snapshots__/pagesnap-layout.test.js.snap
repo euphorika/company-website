@@ -20,7 +20,7 @@ exports[`PageSnapLayout renders correctly 1`] = `
       backgroundColor="#00b8d2"
       headerFontColor="#ffffff"
     >
-      <Footer />
+      <FullpageFooter />
     </FullPage>
   </PageSnapContainer>
 </Fragment>
