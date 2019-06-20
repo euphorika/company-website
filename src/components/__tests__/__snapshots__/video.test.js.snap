@@ -16,7 +16,7 @@ exports[`Video renders correctly 1`] = `
     >
       <source
         src="/videos/design-video.m4v"
-        type="video/mp4"
+        type="video/webm"
       />
     </video>
   </div>

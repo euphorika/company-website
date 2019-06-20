@@ -13,7 +13,7 @@ const Video = ({ video, poster, title, children }) => {
       {body}
       <div className={styles.innerContainer}>
         <video playsInline autoPlay loop muted poster={poster}>
-          <source src={video} type="video/mp4" />
+          <source src={video} type="video/webm" />
         </video>
       </div>
     </section>
