@@ -1,8 +1,16 @@
 .video-container
+  position: relative
   width: 100%
   height: 100%
 
-  video
+  .inner-container
+    padding: 30px
     width: 100%
     height: 100%
-    object-fit: cover
+
+    video
+      width: 100%
+      height: 100%
+      object-fit: contain
+
+  @import 'overlay.styl'

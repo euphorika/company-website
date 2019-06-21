@@ -1,0 +1,43 @@
+@require '../stylus/header.config.styl'
+
+.title,
+.body
+  position: absolute
+  z-index: 100
+
+.title
+  color: #fff
+  font-size: 45px
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+
+  +above('m')
+    font-size: 90px
+
+a
+  color: #000
+  font-size: 14px
+
+  &:before
+    content: "> "
+
+.body
+  left: 0
+  right: 0
+  bottom: 0
+  padding: 25px
+
+  +above('m')
+    left: 20%
+    padding: 50px
+    padding-right: 50px + header.navigation-max-width
+
+  +above('l')
+    left: 50%
+    padding-right: 90px + header.navigation-max-width
+  h1
+    font-size: 35px
+    text-align: right
+    strong
+      font-size: 135%

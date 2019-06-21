@@ -26,6 +26,8 @@ const IndexPage = () => {
                 backgroundColor
                 image
                 alt
+                poster
+                video
               }
               code {
                 body
@@ -90,6 +92,26 @@ const IndexPage = () => {
     }
   `)
 
+  const renderBackground = (frontmatter, body) => {
+    if (frontmatter.image) {
+      return (
+        <Image
+          fluid={data[frontmatter.image].childImageSharp.fluid}
+          title={frontmatter.title}
+          alt={frontmatter.alt}
+        >
+          <MDXRenderer>{body}</MDXRenderer>
+        </Image>
+      )
+    }
+
+    return (
+      <Video video={frontmatter.video} poster={frontmatter.poster}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </Video>
+    )
+  }
+
   return (
     <PageSnapLayout seoTitle="Home">
       {data.teaser.edges.map((value, key) => (
@@ -108,20 +130,12 @@ const IndexPage = () => {
               }
             : {})}
         >
-          <Image
-            fluid={
-              data[value.node.childMdx.frontmatter.image].childImageSharp.fluid
-            }
-            title={value.node.childMdx.frontmatter.title}
-            alt={value.node.childMdx.frontmatter.alt}
-          >
-            <MDXRenderer>{value.node.childMdx.code.body}</MDXRenderer>
-          </Image>
+          {renderBackground(
+            value.node.childMdx.frontmatter,
+            value.node.childMdx.code.body
+          )}
         </FullPage>
       ))}
-      <FullPage headerFontColor="#fff" backgroundColor="#000">
-        <Video video="/videos/diver.mp4" poster="/videos/diver.jpg" />
-      </FullPage>
       <FullPage headerFontColor="#000" backgroundColor="#fff">
         <ScrollingText title="Texseite">
           {data.text.edges.map((value, key) => (

@@ -4,17 +4,21 @@ exports[`Video renders correctly 1`] = `
 <section
   className="videoContainer"
 >
-  <video
-    autoPlay={true}
-    loop={true}
-    muted={true}
-    playsInline={true}
-    poster="/videos/diver.jpg"
+  <div
+    className="innerContainer"
   >
-    <source
-      src="/videos/diver.mp4"
-      type="video/mp4"
-    />
-  </video>
+    <video
+      autoPlay={true}
+      loop={true}
+      muted={true}
+      playsInline={true}
+      poster="/videos/design-poster.jpg"
+    >
+      <source
+        src="/videos/design-video.m4v"
+        type="video/webm"
+      />
+    </video>
+  </div>
 </section>
 `;
