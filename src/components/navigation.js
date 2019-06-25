@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import Helmet from "react-helmet"
 
+import NavigationLink from "./navigation-link"
 import ThemeContext from "../context/ThemeContext"
 
 import ClosingX from "./closing-x"
@@ -25,6 +25,7 @@ const Navigation = ({ fontColor }) => (
                 background-color: ${backgroundColor}
               }
               .${styles.pageNavigation} ul .${styles.entry} a,
+              .${styles.pageNavigation} ul .${styles.entry} span,
               .${styles.closeNavigation} {
                 color: ${fontColor}
               }
@@ -33,29 +34,44 @@ const Navigation = ({ fontColor }) => (
           <nav>
             <ul>
               <li className={styles.entry}>
-                <Link onClick={theme.resetThemeState} to="/">
-                  Euphorika
-                </Link>
+                <NavigationLink
+                  linkTo="/"
+                  currentPathName={window.location.pathname}
+                  name="Euphorika"
+                  onClickHandler={theme.resetThemeState}
+                />
               </li>
               <li className={styles.entry}>
-                <Link onClick={theme.resetThemeState} to="/service/">
-                  Leistungen
-                </Link>
+                <NavigationLink
+                  linkTo="/service/"
+                  currentPathName={window.location.pathname}
+                  name="Leistungen"
+                  onClickHandler={theme.resetThemeState}
+                />
               </li>
               <li className={styles.entry}>
-                <Link onClick={theme.resetThemeState} to="/best-cases/">
-                  Best Cases
-                </Link>
+                <NavigationLink
+                  linkTo="/best-cases/"
+                  currentPathName={window.location.pathname}
+                  name="Best Cases"
+                  onClickHandler={theme.resetThemeState}
+                />
               </li>
               <li className={styles.entry}>
-                <Link onClick={theme.resetThemeState} to="/jobs/">
-                  Jobs
-                </Link>
+                <NavigationLink
+                  linkTo="/jobs/"
+                  currentPathName={window.location.pathname}
+                  name="Jobs"
+                  onClickHandler={theme.resetThemeState}
+                />
               </li>
               <li className={styles.entry}>
-                <Link onClick={theme.resetThemeState} to="/contact/">
-                  Kontakt
-                </Link>
+                <NavigationLink
+                  linkTo="/contact/"
+                  currentPathName={window.location.pathname}
+                  name="Kontakt"
+                  onClickHandler={theme.resetThemeState}
+                />
               </li>
             </ul>
           </nav>
