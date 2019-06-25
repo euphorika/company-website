@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import "./navigation-link.module.styl"
+import "./navigation-entry.module.styl"
 
 const NavigationEntry = ({ linkTo, currentPathName, name, onClickHandler }) => {
   const renderEntry = name => <span>{name}</span>

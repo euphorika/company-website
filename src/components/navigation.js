@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 
-import NavigationLink from "./navigation-link"
+import NavigationEntry from "./navigation-entry"
 import ThemeContext from "../context/ThemeContext"
 
 import ClosingX from "./closing-x"
@@ -34,7 +34,7 @@ const Navigation = ({ fontColor }) => (
           <nav>
             <ul>
               <li className={styles.entry}>
-                <NavigationLink
+                <NavigationEntry
                   linkTo="/"
                   currentPathName={window.location.pathname}
                   name="Euphorika"
@@ -42,7 +42,7 @@ const Navigation = ({ fontColor }) => (
                 />
               </li>
               <li className={styles.entry}>
-                <NavigationLink
+                <NavigationEntry
                   linkTo="/service/"
                   currentPathName={window.location.pathname}
                   name="Leistungen"
@@ -50,7 +50,7 @@ const Navigation = ({ fontColor }) => (
                 />
               </li>
               <li className={styles.entry}>
-                <NavigationLink
+                <NavigationEntry
                   linkTo="/best-cases/"
                   currentPathName={window.location.pathname}
                   name="Best Cases"
@@ -58,7 +58,7 @@ const Navigation = ({ fontColor }) => (
                 />
               </li>
               <li className={styles.entry}>
-                <NavigationLink
+                <NavigationEntry
                   linkTo="/jobs/"
                   currentPathName={window.location.pathname}
                   name="Jobs"
@@ -66,7 +66,7 @@ const Navigation = ({ fontColor }) => (
                 />
               </li>
               <li className={styles.entry}>
-                <NavigationLink
+                <NavigationEntry
                   linkTo="/contact/"
                   currentPathName={window.location.pathname}
                   name="Kontakt"
