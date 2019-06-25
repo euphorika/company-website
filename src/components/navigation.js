@@ -36,7 +36,6 @@ const Navigation = ({ fontColor }) => (
               <li className={styles.entry}>
                 <NavigationEntry
                   linkTo="/"
-                  currentPathName={window.location.pathname}
                   name="Euphorika"
                   onClickHandler={theme.resetThemeState}
                 />
@@ -44,7 +43,6 @@ const Navigation = ({ fontColor }) => (
               <li className={styles.entry}>
                 <NavigationEntry
                   linkTo="/service/"
-                  currentPathName={window.location.pathname}
                   name="Leistungen"
                   onClickHandler={theme.resetThemeState}
                 />
@@ -52,7 +50,6 @@ const Navigation = ({ fontColor }) => (
               <li className={styles.entry}>
                 <NavigationEntry
                   linkTo="/best-cases/"
-                  currentPathName={window.location.pathname}
                   name="Best Cases"
                   onClickHandler={theme.resetThemeState}
                 />
@@ -60,7 +57,6 @@ const Navigation = ({ fontColor }) => (
               <li className={styles.entry}>
                 <NavigationEntry
                   linkTo="/jobs/"
-                  currentPathName={window.location.pathname}
                   name="Jobs"
                   onClickHandler={theme.resetThemeState}
                 />
@@ -68,7 +64,6 @@ const Navigation = ({ fontColor }) => (
               <li className={styles.entry}>
                 <NavigationEntry
                   linkTo="/contact/"
-                  currentPathName={window.location.pathname}
                   name="Kontakt"
                   onClickHandler={theme.resetThemeState}
                 />

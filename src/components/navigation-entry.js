@@ -1,10 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import { Location } from "@reach/router"
 
 import "./navigation-entry.module.styl"
 
-const NavigationEntry = ({ linkTo, currentPathName, name, onClickHandler }) => {
+const NavigationEntry = ({ linkTo, name, onClickHandler }) => {
   const renderEntry = name => <span>{name}</span>
 
   const renderLinkEntry = (linkTo, name, onClickHandler) => (
@@ -13,16 +14,21 @@ const NavigationEntry = ({ linkTo, currentPathName, name, onClickHandler }) => {
     </Link>
   )
 
-  if (linkTo === currentPathName) {
-    return renderEntry(name)
-  }
+  return (
+    <Location>
+      {({ location }) => {
+        if (linkTo === location.pathname) {
+          return renderEntry(name)
+        }
 
-  return renderLinkEntry(linkTo, name, onClickHandler)
+        return renderLinkEntry(linkTo, name, onClickHandler)
+      }}
+    </Location>
+  )
 }
 
 NavigationEntry.propTypes = {
   linkTo: PropTypes.string.isRequired,
-  currentPathName: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   onClickHandler: PropTypes.func,
 }

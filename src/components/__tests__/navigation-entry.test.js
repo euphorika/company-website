@@ -3,13 +3,13 @@ import renderer from "react-test-renderer"
 
 import NavigationEntry from "../navigation-entry"
 
-describe("NavigationEntry", () => {
+describe("current NavigationEntry", () => {
+
   it("renders span correctly", () => {
     const onClickHandlerDummy = () => {}
     const tree = renderer
       .create(<NavigationEntry
         linkTo="/"
-        currentPathName="/"
         name="Home"
         onClickHandler={onClickHandlerDummy}
       />)
@@ -22,8 +22,7 @@ describe("NavigationEntry", () => {
     const onClickHandlerDummy = () => {}
     const tree = renderer
       .create(<NavigationEntry
-        linkTo="/"
-        currentPathName="/path/"
+        linkTo="/not-home/"
         name="Not Home"
         onClickHandler={onClickHandlerDummy}
       />)
