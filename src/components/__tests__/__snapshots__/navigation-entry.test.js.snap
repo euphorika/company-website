@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`current NavigationEntry renders link correctly 1`] = `
+<a
+  href="/not-home/"
+  onClick={[Function]}
+>
+  Not Home
+</a>
+`;
+
+exports[`current NavigationEntry renders span correctly 1`] = `
+<span>
+  Home
+</span>
+`;
