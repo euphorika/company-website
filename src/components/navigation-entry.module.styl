@@ -1,0 +1,25 @@
+@require '../stylus/header.config.styl'
+
+a, span
+  color: #000
+  transition: color header.transition-duration
+  position: relative
+  padding-bottom: 5px
+
+a
+  text-decoration: none
+
+  &:hover::after
+    position: absolute
+    bottom: 0
+    left: 0
+    content: ''
+    border-bottom: 1px solid
+    animation: fill 1s forwards
+
+@-webkit-keyframes fill
+  0%
+    width: 0%
+
+  100%
+    width: 100%

@@ -36,12 +36,9 @@ exports[`Header renders correctly 1`] = `
         <li
           className="entry"
         >
-          <a
-            href="/"
-            onClick={[Function]}
-          >
+          <span>
             Euphorika
-          </a>
+          </span>
         </li>
         <li
           className="entry"
